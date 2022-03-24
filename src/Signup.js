@@ -1,16 +1,18 @@
+import React from "react";
+import { useAuthContext } from "./contexts/AuthContext";
 import { auth } from "./firebase";
-import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
+  const { user } = useAuthContext();
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
-    auth.signInWithEmailAndPassword(email.value, password.value);
+    auth.createUserWithEmailAndPassword(email.value, password.value);
   };
 
   return (
     <div>
-      <h1>ログイン</h1>
+      <h1>ユーザ登録</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>メールアドレス</label>
@@ -21,14 +23,11 @@ const Login = () => {
           <input name="password" type="password" placeholder="password" />
         </div>
         <div>
-          <button>ログイン</button>
-        </div>
-        <div>
-          ユーザ登録は<Link to={"/signup"}>こちら</Link>から
+          <button>登録</button>
         </div>
       </form>
     </div>
   );
 };
 
-export { Login };
+export { Signup };
