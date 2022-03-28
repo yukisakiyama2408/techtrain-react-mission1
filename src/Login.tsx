@@ -13,7 +13,7 @@ const Login = () => {
 
   const [redirect, setRedirect] = useState(false);
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log(data);
     axios
       .post("https://api-for-missions-and-railways.herokuapp.com/signin", {

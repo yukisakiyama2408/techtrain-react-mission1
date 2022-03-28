@@ -4,6 +4,7 @@ import React from "react";
 import "./App.css";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
+import { BookIndex } from "./BooksIndex";
 
 const App = () => {
   return (
@@ -26,6 +27,9 @@ const App = () => {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/book-index">Books</Link>
+            </li>
           </ul>
         </nav>
         <Routes>
@@ -33,6 +37,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/book-index" element={<BookIndex />} />
         </Routes>
       </div>
     </Router>
