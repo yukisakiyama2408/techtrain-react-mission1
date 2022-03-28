@@ -2,14 +2,15 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-export const apiClient = axios.create({
-  baseURL: "https://api-for-missions-and-railways.herokuapp.com/users",
-  responseType: "json",
-  headers: {
-    token: "string",
-  },
-});
+//export const apiClient = axios.create({
+//baseURL: "https://api-for-missions-and-railways.herokuapp.com/users",
+//responseType: "json",
+//headers: {
+//token: "string",
+//},
+//});
 
 const Signup = () => {
   const {
@@ -55,9 +56,11 @@ const Signup = () => {
           {errors.password && "パスワードを入力してください"}
         </div>
         <div>
-          <button type="submit">Sing In</button>
+          <button type="submit">Sing Up</button>
         </div>
       </form>
+      <p>ログインはこちらから</p>
+      <Link to="/login">Login</Link>
     </div>
   );
 };
