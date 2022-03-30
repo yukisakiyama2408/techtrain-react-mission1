@@ -20,10 +20,13 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
+  const urlUsersApi =
+    "https://api-for-missions-and-railways.herokuapp.com/users";
+
   const onSubmit = (data: any) => {
     console.log(data);
     axios
-      .post("https://api-for-missions-and-railways.herokuapp.com/users", {
+      .post(urlUsersApi, {
         name: "string",
         email: "string",
         password: "string",
