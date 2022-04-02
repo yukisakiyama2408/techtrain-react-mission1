@@ -14,6 +14,7 @@
     "@types/react": "^17.0.41",
     "@types/react-dom": "^17.0.14",
     "axios": "^0.26.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "firebase": "^9.6.9",
     "formik": "^2.2.9",
@@ -50,4 +51,5 @@
       "last 1 safari version"
     ]
   }
+
 }
