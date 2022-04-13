@@ -1,17 +1,22 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useNavigate, useLocation } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { useAuth } from "./Contexts/AuthContext";
 
 const Login = () => {
+  let navigate = useNavigate();
+  let location = useLocation();
+  let auth = useAuth();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
   const [redirect, setRedirect] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(["cookie-name"]);
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -28,6 +33,7 @@ const Login = () => {
         console.log(error);
       });
     setRedirect(true);
+    setCookie("cookie-name", data, { path: "/" });
   };
 
   if (redirect) {
