@@ -5,7 +5,7 @@ const AuthStatus = () => {
   let auth = useAuth();
   let navigate = useNavigate();
 
-  if (!auth.user) {
+  if (!auth.getAccessToken()) {
     return (
       <header>
         <Link to="/login">Login</Link>{" "}
@@ -13,5 +13,5 @@ const AuthStatus = () => {
     );
   }
 
-  return <p>Welcome {auth.user}! </p>;
+  return <p>Welcome {auth.getAccessToken()}! </p>;
 };

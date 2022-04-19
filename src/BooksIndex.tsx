@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { useAuth } from "./Contexts/AuthContext";
 
 const BookIndex = () => {
+  const { getAccessToken } = useAuth();
   const urlBooksApi =
     "https://api-for-missions-and-railways.herokuapp.com/books?offset=5";
-  const api_token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDk2NjAyMjksImlhdCI6IjIwMjItMDQtMTBUMDY6NTc6MDkuNDA1MDc4ODE2WiIsInN1YiI6IjU0NTQ2NTU3MzU0IiwidXNlcl9pZCI6IjAwNzRhMjkzLTdhZjEtNDBkZC1hNDVlLTliODYyYWZkYWZjOSJ9.SPbh0uIdeNNepd6h1GjheAUccYE26dGCzXXyHN7YbVA";
+  const api_token = getAccessToken();
+
   const [books, setBooks] = useState<Array<any>>([]);
   useEffect(() => {
     axios

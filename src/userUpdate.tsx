@@ -1,48 +1,47 @@
+import React from "react";
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Navigate, Link, useNavigate, useLocation } from "react-router-dom";
-import { useCookies } from "react-cookie";
-import { useRecoilState } from "recoil";
-import { signInUserState } from "./Recoil/atoms";
-import { useAuth } from "./Contexts/AuthContext";
 
-const Login = () => {
+const UserUpdate = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signin, getAccessToken } = useAuth();
-  const [redirect, setRedirect] = useState(false);
+
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  const urlUsersApi =
+    "https://api-for-missions-and-railways.herokuapp.com/users";
+  console.log();
+  useEffect(() => {
+    axios.get(urlUsersApi).then((response) => {
+      setName(response.data);
+    });
+  }, []);
 
   const onSubmit = (data: any) => {
     console.log(data);
-    //signin("Reader", () => {});
     axios
-      .post("https://api-for-missions-and-railways.herokuapp.com/signin", {
+      .put(urlUsersApi, {
         name: "string",
         email: "string",
         password: "string",
       })
       .then(function (response) {
-        signin(response.data.token);
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
-    setRedirect(true);
   };
-
-  if (getAccessToken()) {
-    // Homeへリダイレクトする
-    return <Navigate to={"/"} />;
-  }
 
   return (
     <div>
-      <h1>ログイン</h1>
+      <h1>ユーザー情報編集</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>名前</label>
@@ -60,13 +59,11 @@ const Login = () => {
           {errors.password && "パスワードを入力してください"}
         </div>
         <div>
-          <button type="submit">Sing In</button>
+          <button type="submit">update</button>
         </div>
       </form>
-      <p>ユーザー登録はこちらから</p>
-      <Link to="/signup">Signup</Link>
     </div>
   );
 };
 
-export { Login };
+export { UserUpdate };

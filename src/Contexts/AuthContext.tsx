@@ -1,43 +1,34 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
+import { string } from "yup";
 
 interface AuthContextType {
-  user: any;
-  signin: (user: string, callback: VoidFunction) => void;
-  signout: (callback: VoidFunction) => void;
+  signin: (accessToken: string) => void;
+  signout: () => void;
+  getAccessToken: () => string | null;
 }
-
-const fakeAuthProvider = {
-  isAuthenticated: false,
-  signin(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = true;
-    setTimeout(callback, 100); // fake async
-  },
-  signout(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = false;
-    setTimeout(callback, 100);
-  },
-};
 
 let AuthContext = React.createContext<AuthContextType>(null!);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  let [user, setUser] = React.useState<any>(null);
-
-  let signin = (newUser: string, callback: VoidFunction) => {
-    return fakeAuthProvider.signin(() => {
-      setUser(newUser);
-      callback();
-    });
+  let signin = (accessToken: string) => {
+    localStorage.setItem("accessToken", accessToken);
   };
 
-  let signout = (callback: VoidFunction) => {
-    return fakeAuthProvider.signout(() => {
-      setUser(null);
-      callback();
-    });
+  let signout = () => {
+    localStorage.removeItem("accessToken");
   };
 
-  let value = { user, signin, signout };
+  let getAccessToken = () => {
+    return localStorage.getItem("accessToken");
+  };
+
+  //useEffect(() => {
+  //const Item = localStorage.getItem("user");
+  //if (Item) {
+  //setUser(Item);
+  //}
+  //}, []);
+  let value = { signin, signout, getAccessToken };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
@@ -46,4 +37,4 @@ const useAuth = () => {
   return useContext(AuthContext);
 };
 
-export { fakeAuthProvider, useAuth, AuthProvider };
+export { useAuth, AuthProvider };
