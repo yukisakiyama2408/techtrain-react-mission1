@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { string } from "yup";
 
 interface AuthContextType {
   signin: (accessToken: string) => void;
@@ -12,15 +11,15 @@ let AuthContext = React.createContext<AuthContextType>(null!);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   let signin = (accessToken: string) => {
-    localStorage.setItem("accessToken", accessToken);
+    sessionStorage.setItem("accessToken", accessToken);
   };
 
   let signout = () => {
-    localStorage.removeItem("accessToken");
+    sessionStorage.removeItem("accessToken");
   };
 
   let getAccessToken = () => {
-    return localStorage.getItem("accessToken");
+    return sessionStorage.getItem("accessToken");
   };
 
   //useEffect(() => {
