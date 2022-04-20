@@ -41,8 +41,6 @@ const Menu = () => {
   const { getAccessToken } = useAuth();
 
   const isSignedIn = Boolean(getAccessToken());
-  console.log(isSignedIn);
-
   return (
     <nav>
       <ul>

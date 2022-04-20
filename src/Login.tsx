@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Navigate, Link, useNavigate, useLocation } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import { useRecoilState } from "recoil";
 import { signInUserState } from "./Recoil/atoms";
 import { useAuth } from "./Contexts/AuthContext";
@@ -17,8 +16,6 @@ const Login = () => {
   const [redirect, setRedirect] = useState(false);
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    //signin("Reader", () => {});
     axios
       .post("https://api-for-missions-and-railways.herokuapp.com/signin", {
         name: "string",
