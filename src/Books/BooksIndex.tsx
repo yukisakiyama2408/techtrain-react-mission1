@@ -49,12 +49,23 @@ const BookIndex = () => {
             <Link to="/login">Login</Link>
           </header>
         )}
+        <header>
+          {" "}
+          <Link to="/new">書籍を登録する</Link>
+        </header>
       </div>
       <div>
         <h2>本一覧</h2>
         <div>
           {books.map((data) => (
-            <div key={data.id}>{data.title}</div>
+            <>
+              <div key={data.id}>{data.title}</div>
+              <a key={data.id} href={data.url}>
+                {data.url}
+              </a>
+              <div key={data.id}>{data.detail}</div>
+              <div key={data.id}>{data.review}</div>
+            </>
           ))}
         </div>
       </div>

@@ -12,6 +12,7 @@ import { Login } from "./Users/Login";
 import { BookIndex } from "./Books/BooksIndex";
 import { UserUpdate } from "./Users/userUpdate";
 import { AuthProvider, useAuth } from "./Contexts/AuthContext";
+import { BookNew } from "./Books/BooksNew";
 import { RequireAuth } from "./Contexts/RequireAuth";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/user-update" element={<UserUpdate />} />
             <Route
               path="/book-index"
               element={
@@ -33,7 +35,7 @@ const App = () => {
                 //</RequireAuth>
               }
             />
-            <Route path="/user-update" element={<UserUpdate />} />
+            <Route path="/new" element={<BookNew />} />
           </Routes>
         </div>
       </Router>
@@ -69,6 +71,9 @@ const Menu = () => {
         )}
         <li>
           <Link to="/book-index">Books</Link>
+        </li>
+        <li>
+          <Link to="/new">Book Registration</Link>
         </li>
       </ul>
     </nav>

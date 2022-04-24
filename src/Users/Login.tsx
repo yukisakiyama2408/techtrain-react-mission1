@@ -1,9 +1,6 @@
 import axios from "axios";
-import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Navigate, Link, useNavigate, useLocation } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { signInUserState } from "../Recoil/atoms";
 import { useAuth } from "../Contexts/AuthContext";
 
 const Login = () => {
@@ -12,8 +9,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signin, getAccessToken, userName, getUserName } = useAuth();
-  const [redirect, setRedirect] = useState(false);
+  const { signin, getAccessToken, userName } = useAuth();
 
   const onSubmit = (data: any) => {
     axios
