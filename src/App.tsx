@@ -3,17 +3,14 @@ import {
   Routes,
   Route,
   Link,
-  RouteProps,
   Navigate,
 } from "react-router-dom";
 import Home from "./Home";
-import React, { useContext } from "react";
 import "./App.css";
-import { Signup } from "./Signup";
-import { Login } from "./Login";
-import { BookIndex } from "./BooksIndex";
-import { UserUpdate } from "./userUpdate";
-import { RecoilRoot } from "recoil";
+import { Signup } from "./Users/Signup";
+import { Login } from "./Users/Login";
+import { BookIndex } from "./Books/BooksIndex";
+import { UserUpdate } from "./Users/userUpdate";
 import { AuthProvider, useAuth } from "./Contexts/AuthContext";
 import { RequireAuth } from "./Contexts/RequireAuth";
 
@@ -28,7 +25,14 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/book-index" element={<BookIndex />} />
+            <Route
+              path="/book-index"
+              element={
+                //<RequireAuth>
+                <BookIndex />
+                //</RequireAuth>
+              }
+            />
             <Route path="/user-update" element={<UserUpdate />} />
           </Routes>
         </div>

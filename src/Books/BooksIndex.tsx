@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useAuth } from "./Contexts/AuthContext";
+import { useAuth } from "../Contexts/AuthContext";
 import { Link, Navigate } from "react-router-dom";
 
 const BookIndex = () => {
-  const { getAccessToken, signout } = useAuth();
+  const { getAccessToken, signout, getUserName } = useAuth();
   const urlBooksApi =
     "https://api-for-missions-and-railways.herokuapp.com/books?offset=5";
   const api_token = getAccessToken();
-
   const [books, setBooks] = useState<Array<any>>([]);
   useEffect(() => {
     axios
@@ -25,13 +24,14 @@ const BookIndex = () => {
   }, []);
   console.log(books);
   const isSignedIn = Boolean(getAccessToken());
+  const User = getUserName();
 
   return (
     <>
       <div>
         {isSignedIn && (
           <>
-            <header>aaa</header>
+            <header>{User}</header>
             <header>
               <button
                 onClick={() => {
@@ -53,7 +53,6 @@ const BookIndex = () => {
       <div>
         <h2>本一覧</h2>
         <div>
-          console.log(data);
           {books.map((data) => (
             <div key={data.id}>{data.title}</div>
           ))}

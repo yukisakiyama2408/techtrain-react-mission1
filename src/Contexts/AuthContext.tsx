@@ -5,6 +5,8 @@ interface AuthContextType {
   signin: (accessToken: string) => void;
   signout: () => void;
   getAccessToken: () => string | null;
+  userName: (Name: string) => void;
+  getUserName: () => string | null;
 }
 
 let AuthContext = React.createContext<AuthContextType>(null!);
@@ -14,21 +16,24 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     sessionStorage.setItem("accessToken", accessToken);
   };
 
+  let userName = (Name: string) => {
+    sessionStorage.setItem("Name", Name);
+  };
+
   let signout = () => {
     sessionStorage.removeItem("accessToken");
+    sessionStorage.removeItem("Name");
   };
 
   let getAccessToken = () => {
     return sessionStorage.getItem("accessToken");
   };
 
-  //useEffect(() => {
-  //const Item = localStorage.getItem("user");
-  //if (Item) {
-  //setUser(Item);
-  //}
-  //}, []);
-  let value = { signin, signout, getAccessToken };
+  let getUserName = () => {
+    return sessionStorage.getItem("Name");
+  };
+
+  let value = { signin, signout, getAccessToken, userName, getUserName };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
