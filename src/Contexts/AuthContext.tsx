@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
 
 interface AuthContextType {
@@ -14,6 +14,7 @@ let AuthContext = React.createContext<AuthContextType>(null!);
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   let signin = (accessToken: string) => {
     sessionStorage.setItem("accessToken", accessToken);
+    return <Navigate to={"/"} />;
   };
 
   let userName = (Name: string) => {
@@ -23,6 +24,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   let signout = () => {
     sessionStorage.removeItem("accessToken");
     sessionStorage.removeItem("Name");
+    return <Navigate to={"/login"} />;
   };
 
   let getAccessToken = () => {

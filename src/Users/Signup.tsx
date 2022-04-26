@@ -27,9 +27,9 @@ const Signup = () => {
     console.log(data);
     axios
       .post(urlUsersApi, {
-        name: "string",
-        email: "string",
-        password: "string",
+        name: data.name,
+        email: data.email,
+        password: data.password,
       })
       .then(function (response) {
         console.log(response);

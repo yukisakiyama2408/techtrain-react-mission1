@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, Navigate } from "react-router-dom";
@@ -31,7 +31,7 @@ const BookIndex = () => {
       <div>
         {isSignedIn && (
           <>
-            <header>{User}</header>
+            <header>ようこそ{User}</header>
             <header>
               <button
                 onClick={() => {
@@ -50,7 +50,6 @@ const BookIndex = () => {
           </header>
         )}
         <header>
-          {" "}
           <Link to="/new">書籍を登録する</Link>
         </header>
       </div>

@@ -14,13 +14,12 @@ const Login = () => {
   const onSubmit = (data: any) => {
     axios
       .post("https://api-for-missions-and-railways.herokuapp.com/signin", {
-        name: "string",
-        email: "string",
-        password: "string",
+        email: data.email,
+        password: data.password,
       })
       .then(function (response) {
         signin(response.data.token);
-        userName(response.data.name);
+        userName(data.name);
         console.log(response);
       })
       .catch(function (error) {

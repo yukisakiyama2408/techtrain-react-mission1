@@ -23,7 +23,6 @@ const App = () => {
           <Menu />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/user-update" element={<UserUpdate />} />
@@ -79,13 +78,5 @@ const Menu = () => {
     </nav>
   );
 };
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
 
 export default App;
