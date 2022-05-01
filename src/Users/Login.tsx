@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { Navigate, Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -25,21 +26,12 @@ const Login = () => {
       .catch(function (error) {
         console.log(error);
       });
-    if (getAccessToken()) {
-      // Homeへリダイレクトする
-      return <Navigate to={"/"} />;
-    }
   };
 
   return (
     <div>
       <h1>ログイン</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>名前</label>
-          <input {...register("name", { required: true })} />
-          {errors.name && "文字が入力されていません"}
-        </div>
         <div>
           <label>メールアドレス</label>
           <input {...register("email", { required: true })} />
@@ -51,7 +43,9 @@ const Login = () => {
           {errors.password && "パスワードを入力してください"}
         </div>
         <div>
-          <button type="submit">Sing In</button>
+          <button type="submit" onClick={() => navigate("/book-index")}>
+            Sing In
+          </button>
         </div>
       </form>
       <p>ユーザー登録はこちらから</p>

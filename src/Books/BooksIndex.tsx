@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
-import { Link, Navigate } from "react-router-dom";
+import { BooksDetail } from "./BooksDetail";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 const BookIndex = () => {
+  const navigate = useNavigate();
   const { getAccessToken, signout, getUserName } = useAuth();
   const urlBooksApi =
     "https://api-for-missions-and-railways.herokuapp.com/books?offset=5";
@@ -36,11 +38,11 @@ const BookIndex = () => {
               <button
                 onClick={() => {
                   signout();
+                  navigate("/");
                 }}
               >
                 Sign Out
               </button>
-              {!isSignedIn && <Navigate to={"/login"} />}
             </header>
           </>
         )}
@@ -64,6 +66,7 @@ const BookIndex = () => {
               </a>
               <div key={data.id}>{data.detail}</div>
               <div key={data.id}>{data.review}</div>
+              <Link to={`detail/:${data.id}`}>詳細</Link>
             </>
           ))}
         </div>

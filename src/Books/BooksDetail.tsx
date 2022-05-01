@@ -7,16 +7,10 @@ import { useParams } from "react-router-dom";
 const BooksDetail = () => {
   const { getAccessToken } = useAuth();
   const api_token = getAccessToken();
-  const { id } = useParams();
+  const { bookId } = useParams();
+  const bookDetailUrl = `api-for-missions-and-railways.herokuapp.com//books/${bookId}`;
 
-  const bookDetailUrl =
-    "api-for-missions-and-railways.herokuapp.com//books/{id}";
-
-  const [bookId, setBookId] = useState(" ");
-  const [bookTitle, setBookTitle] = useState(" ");
-  const [bookUrl, setBookUrl] = useState(" ");
-  const [bookDetail, setBookDetail] = useState(" ");
-  const [bookreview, setBookReview] = useState(" ");
+  const [book, setBook] = useState(" ");
 
   useEffect(() => {
     axios
@@ -28,13 +22,20 @@ const BooksDetail = () => {
         data: {},
       })
       .then((res) => {
-        setBookId(res.data.id);
-        setBookTitle(res.data.title);
-        setBookUrl(res.data.url);
-        setBookDetail(res.data.detail);
-        setBookReview(res.data.review);
+        setBook(res.data);
       });
-  }, []);
+  }, [bookId]);
 
-  return <div></div>;
+  console.log(book);
+
+  return (
+    <>
+      <div>
+        <p>book.title</p>
+      </div>
+      ;
+    </>
+  );
 };
+
+export { BooksDetail };

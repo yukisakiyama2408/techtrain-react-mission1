@@ -11,11 +11,16 @@ import { Signup } from "./Users/Signup";
 import { Login } from "./Users/Login";
 import { BookIndex } from "./Books/BooksIndex";
 import { UserUpdate } from "./Users/userUpdate";
+import { NotFound } from "./NotFound";
 import { AuthProvider, useAuth } from "./Contexts/AuthContext";
 import { BookNew } from "./Books/BooksNew";
+import { BooksDetail } from "./Books/BooksDetail";
+import { useParams } from "react-router-dom";
 import { RequireAuth } from "./Contexts/RequireAuth";
 
 const App = () => {
+  const { bookId } = useParams();
+
   return (
     <AuthProvider>
       <Router>
@@ -35,6 +40,8 @@ const App = () => {
               }
             />
             <Route path="/new" element={<BookNew />} />
+            <Route path={`detail/:${bookId}`} element={<BooksDetail />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </Router>
@@ -52,12 +59,19 @@ const Menu = () => {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/users">Users</Link>
-        </li>
+        {isSignedIn && (
+          <>
+            <li>
+              <Link to="/book-index">Signup</Link>
+            </li>
+            <li>
+              <Link to="/book-index">Login</Link>
+            </li>
+            <li>
+              <Link to="/book-index">Books</Link>
+            </li>
+          </>
+        )}
         {!isSignedIn && (
           <>
             <li>
@@ -66,11 +80,12 @@ const Menu = () => {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/login">Books</Link>
+            </li>
           </>
         )}
-        <li>
-          <Link to="/book-index">Books</Link>
-        </li>
+
         <li>
           <Link to="/new">Book Registration</Link>
         </li>
