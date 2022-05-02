@@ -22,6 +22,7 @@ const Login = () => {
         signin(response.data.token);
         userName(data.name);
         console.log(response);
+        navigate("/book-index");
       })
       .catch(function (error) {
         console.log(error);
@@ -43,9 +44,7 @@ const Login = () => {
           {errors.password && "パスワードを入力してください"}
         </div>
         <div>
-          <button type="submit" onClick={() => navigate("/book-index")}>
-            Sing In
-          </button>
+          <button type="submit">Sing In</button>
         </div>
       </form>
       <p>ユーザー登録はこちらから</p>

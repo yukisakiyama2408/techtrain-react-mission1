@@ -4,13 +4,20 @@ import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+type Book = {
+  title: string;
+  url: string;
+  detail: string;
+  review: string;
+};
+
 const BooksDetail = () => {
   const { getAccessToken } = useAuth();
   const api_token = getAccessToken();
-  const { bookId } = useParams();
-  const bookDetailUrl = `api-for-missions-and-railways.herokuapp.com//books/${bookId}`;
+  const { id } = useParams();
+  const bookDetailUrl = `https://api-for-missions-and-railways.herokuapp.com/books/${id}`;
 
-  const [book, setBook] = useState(" ");
+  const [book, setBook] = useState<Book | null>(null);
 
   useEffect(() => {
     axios
@@ -24,16 +31,21 @@ const BooksDetail = () => {
       .then((res) => {
         setBook(res.data);
       });
-  }, [bookId]);
+  }, [id]);
 
   console.log(book);
 
   return (
     <>
-      <div>
-        <p>book.title</p>
-      </div>
-      ;
+      {book && (
+        <div>
+          <p>{book.title}</p>
+          <p>{book.url}</p>
+          <p>{book.detail}</p>
+          <p>{book.review}</p>
+          <p>{book.title}</p>
+        </div>
+      )}
     </>
   );
 };

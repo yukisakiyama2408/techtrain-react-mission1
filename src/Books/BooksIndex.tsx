@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
-import { BooksDetail } from "./BooksDetail";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BookIndex = () => {
   const navigate = useNavigate();
   const { getAccessToken, signout, getUserName } = useAuth();
   const urlBooksApi =
-    "https://api-for-missions-and-railways.herokuapp.com/books?offset=5";
+    "https://api-for-missions-and-railways.herokuapp.com/books?offset=10";
   const api_token = getAccessToken();
   const [books, setBooks] = useState<Array<any>>([]);
   useEffect(() => {
@@ -24,9 +23,28 @@ const BookIndex = () => {
         setBooks(res.data);
       });
   }, []);
+
+  const [user, setUser] = useState("");
+  const userNameApi =
+    "https://api-for-missions-and-railways.herokuapp.com/users";
+
+  useEffect(() => {
+    axios
+      .get(userNameApi, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${api_token}`,
+        },
+        data: {},
+      })
+      .then((res) => {
+        setUser(res.data.name);
+      });
+  }, []);
+
   console.log(books);
   const isSignedIn = Boolean(getAccessToken());
-  const User = getUserName();
+  const User = user;
 
   return (
     <>
@@ -66,7 +84,7 @@ const BookIndex = () => {
               </a>
               <div key={data.id}>{data.detail}</div>
               <div key={data.id}>{data.review}</div>
-              <Link to={`detail/:${data.id}`}>詳細</Link>
+              <Link to={`/detail/${data.id}`}>詳細</Link>
             </>
           ))}
         </div>

@@ -17,10 +17,9 @@ import { BookNew } from "./Books/BooksNew";
 import { BooksDetail } from "./Books/BooksDetail";
 import { useParams } from "react-router-dom";
 import { RequireAuth } from "./Contexts/RequireAuth";
+import { Profile } from "./Users/Profile";
 
 const App = () => {
-  const { bookId } = useParams();
-
   return (
     <AuthProvider>
       <Router>
@@ -40,7 +39,8 @@ const App = () => {
               }
             />
             <Route path="/new" element={<BookNew />} />
-            <Route path={`detail/:${bookId}`} element={<BooksDetail />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="detail/:id" element={<BooksDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
@@ -85,10 +85,6 @@ const Menu = () => {
             </li>
           </>
         )}
-
-        <li>
-          <Link to="/new">Book Registration</Link>
-        </li>
       </ul>
     </nav>
   );

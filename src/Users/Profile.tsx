@@ -8,7 +8,7 @@ const Profile = () => {
   const { getAccessToken } = useAuth();
   const api_token = getAccessToken();
 
-  const [userName, setUserName] = useState(" ");
+  const [userName, setUserName] = useState("");
 
   const {
     register,
@@ -60,20 +60,22 @@ const Profile = () => {
   return (
     <div>
       <h1>ユーザー情報編集</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>名前</label>
-          <input
-            defaultValue={userName}
-            {...register("name", { required: true })}
-          />
-          {errors.name && "文字が入力されていません"}
-        </div>
+      {userName && (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label>名前</label>
+            <input
+              defaultValue={userName}
+              {...register("name", { required: true })}
+            />
+            {errors.name && "文字が入力されていません"}
+          </div>
 
-        <div>
-          <button type="submit">update</button>
-        </div>
-      </form>
+          <div>
+            <button type="submit">update</button>
+          </div>
+        </form>
+      )}
     </div>
   );
 };

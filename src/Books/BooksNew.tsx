@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useAuth } from "../Contexts/AuthContext";
 
 const BookNew = () => {
   const {
@@ -8,13 +9,31 @@ const BookNew = () => {
     formState: { errors },
   } = useForm();
 
+  const { getAccessToken } = useAuth();
+
   const urlUsersApi =
     "https://api-for-missions-and-railways.herokuapp.com/books";
+  const api_token = getAccessToken();
 
   const onSubmit = (data: any) => {
     console.log(data);
     axios
-      .post(urlUsersApi, {})
+      .post(
+        urlUsersApi,
+        {
+          title: data.title,
+          url: data.url,
+          detail: data.detail,
+          review: data.review,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${api_token}`,
+          },
+          data: {},
+        }
+      )
       .then(function (response) {
         console.log(response);
       })
@@ -25,7 +44,7 @@ const BookNew = () => {
 
   return (
     <div>
-      <h1>ユーザ登録</h1>
+      <h1>レビュー登録</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>タイトル</label>
