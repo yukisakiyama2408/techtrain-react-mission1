@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { reviewDelete } from "./BookDelete";
 
 const BookIndex = () => {
   const navigate = useNavigate();
@@ -56,11 +57,13 @@ const BookIndex = () => {
               <button
                 onClick={() => {
                   signout();
-                  navigate("/");
                 }}
               >
                 Sign Out
               </button>
+            </header>
+            <header>
+              <Link to="/profile">ユーザー情報を編集する</Link>
             </header>
           </>
         )}
@@ -85,6 +88,7 @@ const BookIndex = () => {
               <div key={data.id}>{data.detail}</div>
               <div key={data.id}>{data.review}</div>
               <Link to={`/detail/${data.id}`}>詳細</Link>
+              <Link to={`/edit/${data.id}`}>編集</Link>
             </>
           ))}
         </div>

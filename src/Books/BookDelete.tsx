@@ -1,8 +1,7 @@
-import React from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 type Book = {
   title: string;
@@ -11,7 +10,7 @@ type Book = {
   review: string;
 };
 
-const BooksDetail = () => {
+const reviewDelete = () => {
   const { getAccessToken } = useAuth();
   const api_token = getAccessToken();
   const { id } = useParams();
@@ -21,7 +20,7 @@ const BooksDetail = () => {
 
   useEffect(() => {
     axios
-      .get(bookDetailUrl, {
+      .delete(bookDetailUrl, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${api_token}`,
@@ -34,22 +33,6 @@ const BooksDetail = () => {
   }, [id]);
 
   console.log(book);
-
-  return (
-    <>
-      {book && (
-        <div>
-          <div>
-            <p>{book.title}</p>
-            <p>{book.url}</p>
-            <p>{book.detail}</p>
-            <p>{book.review}</p>
-            <p>{book.title}</p>
-          </div>
-        </div>
-      )}
-    </>
-  );
 };
 
-export { BooksDetail };
+export { reviewDelete };

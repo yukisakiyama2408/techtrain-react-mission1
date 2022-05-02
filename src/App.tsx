@@ -18,6 +18,7 @@ import { BooksDetail } from "./Books/BooksDetail";
 import { useParams } from "react-router-dom";
 import { RequireAuth } from "./Contexts/RequireAuth";
 import { Profile } from "./Users/Profile";
+import { BookEdit } from "./Books/BookEdit";
 
 const App = () => {
   return (
@@ -40,7 +41,8 @@ const App = () => {
             />
             <Route path="/new" element={<BookNew />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="detail/:id" element={<BooksDetail />} />
+            <Route path="/detail/:id" element={<BooksDetail />} />
+            <Route path="/edit/:id" element={<BookEdit />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
