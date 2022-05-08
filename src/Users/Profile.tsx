@@ -3,8 +3,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../Contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const { getAccessToken } = useAuth();
   const api_token = getAccessToken();
 
@@ -32,6 +34,7 @@ const Profile = () => {
         setUserName(res.data.name);
       });
   }, []);
+
   const onSubmit = (data: any) => {
     console.log(data);
     axios
@@ -50,6 +53,7 @@ const Profile = () => {
       )
       .then(function (response) {
         console.log(response);
+        navigate("/book-index");
       })
       .catch(function (error) {
         console.log(error);

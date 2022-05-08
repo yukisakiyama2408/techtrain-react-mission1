@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { reviewDelete } from "./BookDelete";
 
 const BookIndex = () => {
   const navigate = useNavigate();
-  const { getAccessToken, signout, getUserName } = useAuth();
+  const { getAccessToken, signout } = useAuth();
   const urlBooksApi =
     "https://api-for-missions-and-railways.herokuapp.com/books?offset=10";
   const api_token = getAccessToken();

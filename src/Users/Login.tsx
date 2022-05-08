@@ -10,7 +10,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signin, getAccessToken, userName } = useAuth();
+  const { signin, getAccessToken } = useAuth();
 
   const onSubmit = (data: any) => {
     axios
@@ -20,7 +20,6 @@ const Login = () => {
       })
       .then(function (response) {
         signin(response.data.token);
-        userName(data.name);
         console.log(response);
         navigate("/book-index");
       })

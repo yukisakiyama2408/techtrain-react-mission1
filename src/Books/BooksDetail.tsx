@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { DeleteReview } from "../Books/BookDelete";
 
 type Book = {
   title: string;
@@ -33,15 +34,13 @@ const BooksDetail = () => {
       });
   }, [id]);
 
-  console.log(book);
-
   return (
     <>
       {book && (
         <div>
           <div>
-            <p>{book.title}</p>
-            <p>{book.url}</p>
+            <h2>{book.title}</h2>
+            <a href={book.url}>{book.url}</a>
             <p>{book.detail}</p>
             <p>{book.review}</p>
             <p>{book.title}</p>

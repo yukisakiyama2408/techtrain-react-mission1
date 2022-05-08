@@ -10,7 +10,7 @@ type Book = {
   review: string;
 };
 
-const reviewDelete = () => {
+const DeleteReview = () => {
   const { getAccessToken } = useAuth();
   const api_token = getAccessToken();
   const { id } = useParams();
@@ -28,11 +28,11 @@ const reviewDelete = () => {
         data: {},
       })
       .then((res) => {
-        setBook(res.data);
+        setBook(null);
       });
   }, [id]);
 
   console.log(book);
 };
 
-export { reviewDelete };
+export { DeleteReview };
