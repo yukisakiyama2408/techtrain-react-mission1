@@ -2,6 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { Box } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
+import { Controller } from "react-hook-form";
+import { Button } from "@material-ui/core";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -9,7 +13,7 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -36,28 +40,93 @@ const Signup = () => {
   return (
     <div>
       <h1>ユーザ登録</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <Box
+        component="form"
+        marginTop="50px"
+        width="100%"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div>
-          <label>名前</label>
-          <input {...register("name", { required: true })} />
-          {errors.name && "文字が入力されていません"}
+          <Controller
+            name="name"
+            control={control}
+            rules={{
+              required: "入力必須ですよ！",
+              maxLength: {
+                value: 30,
+                message: "30文字以下で入力してくださいね！",
+              },
+            }}
+            render={({ field: { value }, fieldState: { error } }) => (
+              <TextField
+                label="お名前"
+                required
+                value={value}
+                variant="outlined"
+                margin="dense"
+                error={Boolean(error)}
+                helperText={error?.message}
+              />
+            )}
+          />
         </div>
         <div>
-          <label>メールアドレス</label>
-          <input {...register("email", { required: true })} />
-          {errors.email && "メールアドレスが入力されていません"}
+          <Controller
+            name="email"
+            control={control}
+            rules={{
+              required: "入力必須ですよ！",
+              maxLength: {
+                value: 30,
+                message: "30文字以下で入力してくださいね！",
+              },
+            }}
+            render={({ field: { value }, fieldState: { error } }) => (
+              <TextField
+                label="メールアドレス"
+                required
+                value={value}
+                variant="outlined"
+                margin="dense"
+                error={Boolean(error)}
+                helperText={error?.message}
+              />
+            )}
+          />
         </div>
         <div>
-          <label>パスワード</label>
-          <input {...register("password", { required: true })} />
-          {errors.password && "パスワードを入力してください"}
+          <Controller
+            name="password"
+            control={control}
+            rules={{
+              required: "入力必須ですよ！",
+              maxLength: {
+                value: 30,
+                message: "30文字以下で入力してくださいね！",
+              },
+            }}
+            render={({ field: { value }, fieldState: { error } }) => (
+              <TextField
+                label="パスワード"
+                required
+                value={value}
+                variant="outlined"
+                margin="dense"
+                error={Boolean(error)}
+                helperText={error?.message}
+              />
+            )}
+          />
         </div>
         <div>
-          <button type="submit" onClick={() => navigate("/book-index")}>
+          <Button variant="contained" type="submit">
             Sing Up
-          </button>
+          </Button>
         </div>
-      </form>
+      </Box>
       <p>ログインはこちらから</p>
       <Link to="/login">Login</Link>
     </div>

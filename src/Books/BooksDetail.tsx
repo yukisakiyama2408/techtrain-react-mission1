@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { DeleteReview } from "../Books/BookDelete";
+//import { DeleteReview } from "../Books/BookDelete";
 
 type Book = {
   title: string;
@@ -34,6 +34,21 @@ const BooksDetail = () => {
       });
   }, [id]);
 
+  const DeleteReview = () => {
+    axios
+      .delete(bookDetailUrl, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${api_token}`,
+        },
+        data: {},
+      })
+      .then((res) => {
+        alert("削除しました!");
+        console.log(res.data);
+      });
+  };
+
   return (
     <>
       {book && (
@@ -44,6 +59,9 @@ const BooksDetail = () => {
             <p>{book.detail}</p>
             <p>{book.review}</p>
             <p>{book.title}</p>
+          </div>
+          <div>
+            <button onClick={DeleteReview}>削除</button>
           </div>
         </div>
       )}

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
+import { Button } from "@material-ui/core";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -43,7 +44,9 @@ const Login = () => {
           {errors.password && "パスワードを入力してください"}
         </div>
         <div>
-          <button type="submit">Sing In</button>
+          <Button variant="contained" type="submit">
+            Sing In
+          </Button>
         </div>
       </form>
       <p>ユーザー登録はこちらから</p>

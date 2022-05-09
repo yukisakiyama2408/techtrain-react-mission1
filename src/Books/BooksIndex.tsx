@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 const BookIndex = () => {
   const navigate = useNavigate();
@@ -46,6 +47,11 @@ const BookIndex = () => {
   const isSignedIn = Boolean(getAccessToken());
   const User = user;
 
+  const SignOut = () => {
+    signout();
+    return navigate("/");
+  };
+
   return (
     <>
       <div>
@@ -53,13 +59,14 @@ const BookIndex = () => {
           <>
             <header>ようこそ{User}</header>
             <header>
-              <button
+              <Button
+                variant="contained"
                 onClick={() => {
-                  signout();
+                  SignOut();
                 }}
               >
                 Sign Out
-              </button>
+              </Button>
             </header>
             <header>
               <Link to="/profile">ユーザー情報を編集する</Link>
@@ -80,14 +87,18 @@ const BookIndex = () => {
         <div>
           {books.map((data) => (
             <>
-              <div key={data.id}>{data.title}</div>
-              <a key={data.id} href={data.url}>
-                {data.url}
-              </a>
-              <div key={data.id}>{data.detail}</div>
-              <div key={data.id}>{data.review}</div>
-              <Link to={`/detail/${data.id}`}>詳細</Link>
-              <Link to={`/edit/${data.id}`}>編集</Link>
+              <div key={data.id}>
+                <h2>{data.title}</h2>
+                <a href={data.url}>{data.url}</a>
+                <p>{data.detail}</p>
+                <p>{data.review}</p>
+                <div>
+                  <Link to={`/detail/${data.id}`}>詳細</Link>
+                </div>
+                <div>
+                  <Link to={`/edit/${data.id}`}>編集</Link>
+                </div>
+              </div>
             </>
           ))}
         </div>
