@@ -15,7 +15,6 @@ import { NotFound } from "./NotFound";
 import { AuthProvider, useAuth } from "./Contexts/AuthContext";
 import { BookNew } from "./Books/BooksNew";
 import { BooksDetail } from "./Books/BooksDetail";
-import { useParams } from "react-router-dom";
 import { RequireAuth } from "./Contexts/RequireAuth";
 import { Profile } from "./Users/Profile";
 import { BookEdit } from "./Books/BookEdit";

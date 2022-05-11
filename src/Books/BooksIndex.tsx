@@ -3,12 +3,13 @@ import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
+import { isMinusToken } from "typescript";
 
 const BookIndex = () => {
   const navigate = useNavigate();
   const { getAccessToken, signout } = useAuth();
   const urlBooksApi =
-    "https://api-for-missions-and-railways.herokuapp.com/books?offset=10";
+    "https://api-for-missions-and-railways.herokuapp.com/books?offset=0";
   const api_token = getAccessToken();
   const [books, setBooks] = useState<Array<any>>([]);
   useEffect(() => {
@@ -95,9 +96,11 @@ const BookIndex = () => {
                 <div>
                   <Link to={`/detail/${data.id}`}>詳細</Link>
                 </div>
-                <div>
-                  <Link to={`/edit/${data.id}`}>編集</Link>
-                </div>
+                {data.isMine && (
+                  <div>
+                    <Link to={`/edit/${data.id}`}>編集</Link>
+                  </div>
+                )}
               </div>
             </>
           ))}
