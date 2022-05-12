@@ -60,13 +60,18 @@ const Signup = () => {
                 message: "30文字以下で入力してくださいね！",
               },
             }}
-            render={({ field: { value }, fieldState: { error } }) => (
+            render={({
+              field: { onBlur, onChange, value },
+              fieldState: { error },
+            }) => (
               <TextField
                 label="お名前"
                 required
                 value={value}
                 variant="outlined"
                 margin="dense"
+                onChange={onChange}
+                onBlur={onBlur}
                 error={Boolean(error)}
                 helperText={error?.message}
               />
@@ -84,13 +89,18 @@ const Signup = () => {
                 message: "30文字以下で入力してくださいね！",
               },
             }}
-            render={({ field: { value }, fieldState: { error } }) => (
+            render={({
+              field: { onBlur, onChange, value },
+              fieldState: { error },
+            }) => (
               <TextField
                 label="メールアドレス"
                 required
                 value={value}
                 variant="outlined"
                 margin="dense"
+                onChange={onChange}
+                onBlur={onBlur}
                 error={Boolean(error)}
                 helperText={error?.message}
               />
@@ -108,13 +118,18 @@ const Signup = () => {
                 message: "30文字以下で入力してくださいね！",
               },
             }}
-            render={({ field: { value }, fieldState: { error } }) => (
+            render={({
+              field: { onBlur, onChange, value },
+              fieldState: { error },
+            }) => (
               <TextField
                 label="パスワード"
                 required
                 value={value}
                 variant="outlined"
                 margin="dense"
+                onChange={onChange}
+                onBlur={onBlur}
                 error={Boolean(error)}
                 helperText={error?.message}
               />
