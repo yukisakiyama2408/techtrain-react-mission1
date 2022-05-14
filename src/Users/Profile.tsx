@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../Contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Box } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
+import { Controller } from "react-hook-form";
+import { Button } from "@material-ui/core";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -16,7 +20,12 @@ const Profile = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    control,
+  } = useForm({
+    mode: "onBlur",
+    criteriaMode: "all",
+    shouldFocusError: false,
+  });
 
   const urlUsersApi =
     "https://api-for-missions-and-railways.herokuapp.com/users";
@@ -64,21 +73,53 @@ const Profile = () => {
   return (
     <div>
       <h1>ユーザー情報編集</h1>
-      {userName && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label>名前</label>
-            <input
-              defaultValue={userName}
-              {...register("name", { required: true })}
-            />
-            {errors.name && "文字が入力されていません"}
-          </div>
 
+      {userName && (
+        <Box
+          component="form"
+          marginTop="50px"
+          width="100%"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div>
-            <button type="submit">update</button>
+            <Controller
+              name="name"
+              control={control}
+              rules={{
+                required: "入力必須ですよ！",
+                maxLength: {
+                  value: 30,
+                  message: "30文字以下で入力してくださいね！",
+                },
+              }}
+              render={({
+                field: { onBlur, onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  label="お名前"
+                  required
+                  value={value}
+                  defaultValue={userName}
+                  variant="outlined"
+                  margin="dense"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={Boolean(error)}
+                  helperText={error?.message}
+                />
+              )}
+            />
           </div>
-        </form>
+          <div>
+            <Button variant="contained" type="submit">
+              更新する
+            </Button>
+          </div>
+        </Box>
       )}
     </div>
   );

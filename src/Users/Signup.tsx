@@ -15,7 +15,11 @@ const Signup = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onBlur",
+    criteriaMode: "all",
+    shouldFocusError: false,
+  });
 
   const urlUsersApi =
     "https://api-for-missions-and-railways.herokuapp.com/users";

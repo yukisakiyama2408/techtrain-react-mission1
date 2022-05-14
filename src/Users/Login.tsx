@@ -15,9 +15,9 @@ const Login = () => {
     formState: { errors },
     control,
   } = useForm({
-    mode: "onBlur", // blur イベントからバリデーションがトリガーされます。
-    criteriaMode: "all", // all -> 発生した全てのエラーが収集されます。
-    shouldFocusError: false, //true -> エラーのある最初のフィールドがフォーカスされます。
+    mode: "onBlur",
+    criteriaMode: "all",
+    shouldFocusError: false,
   });
   const { signin, getAccessToken } = useAuth();
 
