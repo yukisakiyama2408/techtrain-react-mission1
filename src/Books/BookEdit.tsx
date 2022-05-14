@@ -3,6 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { Box } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
+import { Controller } from "react-hook-form";
+import { Button } from "@material-ui/core";
 
 type Book = {
   title: string;
@@ -28,7 +32,12 @@ const BookEdit = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    control,
+  } = useForm({
+    mode: "onBlur",
+    criteriaMode: "all",
+    shouldFocusError: false,
+  });
 
   const bookEditUrl = `https://api-for-missions-and-railways.herokuapp.com/books/${id}`;
 
@@ -82,43 +91,137 @@ const BookEdit = () => {
     <div>
       <h1>書籍レビュー編集</h1>
       {book && (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Box
+          component="form"
+          marginTop="50px"
+          width="100%"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div>
-            <label>タイトル</label>
-            <input
-              defaultValue={book.title}
-              {...register("title", { required: true })}
+            <Controller
+              name="title"
+              control={control}
+              rules={{
+                required: "入力必須ですよ！",
+                maxLength: {
+                  value: 30,
+                  message: "30文字以下で入力してくださいね！",
+                },
+              }}
+              render={({
+                field: { onBlur, onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  label="タイトル"
+                  required
+                  value={value}
+                  defaultValue={book.title}
+                  variant="outlined"
+                  margin="dense"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={Boolean(error)}
+                  helperText={error?.message}
+                />
+              )}
             />
-            {errors.title && "文字が入力されていません"}
           </div>
           <div>
-            <label>URL</label>
-            <input
-              defaultValue={book.url}
-              {...register("url", { required: true })}
+            <Controller
+              name="url"
+              control={control}
+              rules={{
+                required: "入力必須ですよ！",
+              }}
+              render={({
+                field: { onBlur, onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  label="URL"
+                  required
+                  value={value}
+                  defaultValue={book.url}
+                  variant="outlined"
+                  margin="dense"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={Boolean(error)}
+                  helperText={error?.message}
+                />
+              )}
             />
-            {errors.url && "文字が入力されていません"}
           </div>
           <div>
-            <label>詳細</label>
-            <input
-              defaultValue={book.detail}
-              {...register("detail", { required: true })}
+            <Controller
+              name="detail"
+              control={control}
+              rules={{
+                required: "入力必須ですよ！",
+                maxLength: {
+                  value: 30,
+                  message: "30文字以下で入力してくださいね！",
+                },
+              }}
+              render={({
+                field: { onBlur, onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  label="詳細"
+                  required
+                  value={value}
+                  defaultValue={book.detail}
+                  variant="outlined"
+                  margin="dense"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={Boolean(error)}
+                  helperText={error?.message}
+                />
+              )}
             />
-            {errors.detail && "文字が入力されていません"}
           </div>
           <div>
-            <label>レビュー</label>
-            <input
-              defaultValue={book.review}
-              {...register("review", { required: true })}
+            <Controller
+              name="review"
+              control={control}
+              rules={{
+                required: "入力必須ですよ！",
+                maxLength: {
+                  value: 30,
+                  message: "30文字以下で入力してくださいね！",
+                },
+              }}
+              render={({
+                field: { onBlur, onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  label="レビュー"
+                  required
+                  value={value}
+                  variant="outlined"
+                  defaultValue={book.review}
+                  margin="dense"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={Boolean(error)}
+                  helperText={error?.message}
+                />
+              )}
             />
-            {errors.review && "文字が入力されていません"}
           </div>
           <div>
-            <button type="submit">更新する</button>
+            <Button variant="contained" type="submit">
+              投稿する
+            </Button>
           </div>
-        </form>
+        </Box>
       )}
     </div>
   );
