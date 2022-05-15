@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.review-box {
+  width: 100%;
+}
+
+.book-review {
+  padding: 50px;
+}
+
+.review-title {
+  text-align: center;
+}
+
+.review-url {
+  width: 100%;
+}

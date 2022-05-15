@@ -3,6 +3,8 @@ import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Button } from "@material-ui/core";
+
 //import { DeleteReview } from "../Books/BookDelete";
 
 type Book = {
@@ -10,6 +12,8 @@ type Book = {
   url: string;
   detail: string;
   review: string;
+  reviewer: string;
+  isMine: true;
 };
 
 const BooksDetail = () => {
@@ -52,16 +56,25 @@ const BooksDetail = () => {
   return (
     <>
       {book && (
-        <div>
-          <div>
-            <h2>{book.title}</h2>
-            <a href={book.url}>{book.url}</a>
-            <p>{book.detail}</p>
-            <p>{book.review}</p>
-            <p>{book.title}</p>
-          </div>
-          <div>
-            <button onClick={DeleteReview}>削除</button>
+        <div className="review-box">
+          <div className="book-review">
+            <h2 className="review-title">{book.title}</h2>
+            <a className="review-url" href={book.url}>
+              {book.url}
+            </a>
+            <p>書籍の説明文：{book.detail}</p>
+            <p>レビュー：{book.review}</p>
+            <p>投稿者：{book.reviewer}</p>
+            {book.isMine && (
+              <div>
+                <Button variant="contained" onClick={DeleteReview}>
+                  削除
+                </Button>
+              </div>
+            )}
+            <p>
+              <Link to="/book-index">戻る</Link>
+            </p>
           </div>
         </div>
       )}
