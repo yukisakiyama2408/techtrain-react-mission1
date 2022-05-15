@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const DeleteReview = () => {
+  const navigate = useNavigate();
   const { getAccessToken } = useAuth();
   const api_token = getAccessToken();
   const { id } = useParams();
@@ -19,7 +20,10 @@ const DeleteReview = () => {
     .then((res) => {
       alert("削除しました!");
       console.log(res.data);
+      navigate("/book-index");
     });
+
+  return navigate("/book-index");
 };
 
 export { DeleteReview };

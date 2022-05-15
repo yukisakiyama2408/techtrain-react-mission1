@@ -93,6 +93,7 @@ const BookIndex = () => {
                 <a href={data.url}>{data.url}</a>
                 <p>{data.detail}</p>
                 <p>{data.review}</p>
+                <p>投稿者：{data.reviewer}</p>
                 <div>
                   <Link to={`/detail/${data.id}`}>詳細</Link>
                 </div>
