@@ -37,6 +37,15 @@
   }
 }
 
+.signup {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-form {
+  margin: 0 auto;
+}
+
 .review-box {
   width: 100%;
 }
