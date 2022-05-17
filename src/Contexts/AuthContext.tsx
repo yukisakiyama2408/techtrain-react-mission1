@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 interface AuthContextType {
   signin: (accessToken: string) => void;
@@ -21,6 +21,17 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   let getAccessToken = () => {
     return sessionStorage.getItem("accessToken");
   };
+
+  //let userLoggedIn = () => {
+  //const [loggedIn, setLoggedIn] = useState(false);
+  //useEffect(() => {
+  //if (getAccessToken()) {
+  //setLoggedIn(true);
+  //} else {
+  //setLoggedIn(false);
+  //}
+  //});
+  //};
 
   let value = { signin, signout, getAccessToken };
 
