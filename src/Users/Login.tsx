@@ -19,7 +19,7 @@ const Login = () => {
     criteriaMode: "all",
     shouldFocusError: false,
   });
-  const { signin, getAccessToken } = useAuth();
+  const { signin } = useAuth();
 
   const onSubmit = (data: any) => {
     axios

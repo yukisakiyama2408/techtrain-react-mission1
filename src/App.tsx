@@ -15,7 +15,6 @@ import { NotFound } from "./NotFound";
 import { AuthProvider, useAuth } from "./Contexts/AuthContext";
 import { BookNew } from "./Books/BooksNew";
 import { BooksDetail } from "./Books/BooksDetail";
-import { RequireAuth } from "./Contexts/RequireAuth";
 import { Profile } from "./Users/Profile";
 import { BookEdit } from "./Books/BookEdit";
 
@@ -51,9 +50,9 @@ const App = () => {
 };
 
 const Menu = () => {
-  const { getAccessToken } = useAuth();
+  const { accessToken } = useAuth();
 
-  const isSignedIn = Boolean(getAccessToken());
+  const isSignedIn = accessToken != null;
   return (
     <nav>
       <ul>

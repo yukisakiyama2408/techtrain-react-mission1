@@ -17,8 +17,7 @@ type Book = {
 
 const BookEdit = () => {
   const navigate = useNavigate();
-  const { getAccessToken } = useAuth();
-  const api_token = getAccessToken();
+  const { accessToken: api_token } = useAuth();
   const { id } = useParams();
 
   const [book, setBook] = useState<Book | null>(null);
@@ -104,6 +103,7 @@ const BookEdit = () => {
             <Controller
               name="title"
               control={control}
+              defaultValue={book.title}
               rules={{
                 required: "入力必須ですよ！",
                 maxLength: {
@@ -119,7 +119,7 @@ const BookEdit = () => {
                   label="タイトル"
                   required
                   value={value}
-                  defaultValue={book.title}
+                  //defaultValue={book.title}
                   variant="outlined"
                   margin="dense"
                   onChange={onChange}
@@ -134,6 +134,7 @@ const BookEdit = () => {
             <Controller
               name="url"
               control={control}
+              defaultValue={book.url}
               rules={{
                 required: "入力必須ですよ！",
               }}
@@ -145,7 +146,7 @@ const BookEdit = () => {
                   label="URL"
                   required
                   value={value}
-                  defaultValue={book.url}
+                  //defaultValue={book.url}
                   variant="outlined"
                   margin="dense"
                   onChange={onChange}
@@ -159,6 +160,7 @@ const BookEdit = () => {
           <div>
             <Controller
               name="detail"
+              defaultValue={book.detail}
               control={control}
               rules={{
                 required: "入力必須ですよ！",
@@ -175,7 +177,6 @@ const BookEdit = () => {
                   label="詳細"
                   required
                   value={value}
-                  defaultValue={book.detail}
                   variant="outlined"
                   margin="dense"
                   onChange={onChange}
@@ -190,6 +191,7 @@ const BookEdit = () => {
             <Controller
               name="review"
               control={control}
+              defaultValue={book.review}
               rules={{
                 required: "入力必須ですよ！",
                 maxLength: {
@@ -206,7 +208,7 @@ const BookEdit = () => {
                   required
                   value={value}
                   variant="outlined"
-                  defaultValue={book.review}
+                  //defaultValue={book.review}
                   margin="dense"
                   onChange={onChange}
                   onBlur={onBlur}

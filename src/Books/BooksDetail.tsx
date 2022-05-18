@@ -17,8 +17,8 @@ type Book = {
 };
 
 const BooksDetail = () => {
-  const { getAccessToken } = useAuth();
-  const api_token = getAccessToken();
+  const { accessToken: api_token } = useAuth();
+
   const { id } = useParams();
   const bookDetailUrl = `https://api-for-missions-and-railways.herokuapp.com/books/${id}`;
 

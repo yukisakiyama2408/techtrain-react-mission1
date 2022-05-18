@@ -7,10 +7,10 @@ import { isMinusToken } from "typescript";
 
 const BookIndex = () => {
   const navigate = useNavigate();
-  const { getAccessToken, signout } = useAuth();
+  const { accessToken, signout } = useAuth();
+  const api_token = accessToken;
   const urlBooksApi =
     "https://api-for-missions-and-railways.herokuapp.com/books?offset=0";
-  const api_token = getAccessToken();
   const [books, setBooks] = useState<Array<any>>([]);
   useEffect(() => {
     axios
@@ -45,7 +45,7 @@ const BookIndex = () => {
   }, []);
 
   console.log(books);
-  const isSignedIn = Boolean(getAccessToken());
+  const isSignedIn = accessToken != null;
   const User = user;
 
   const SignOut = () => {

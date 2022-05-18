@@ -11,8 +11,7 @@ import { Button } from "@material-ui/core";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { getAccessToken } = useAuth();
-  const api_token = getAccessToken();
+  const { accessToken: api_token } = useAuth();
 
   const [userName, setUserName] = useState("");
 

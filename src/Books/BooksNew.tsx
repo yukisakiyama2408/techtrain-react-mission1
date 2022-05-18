@@ -20,11 +20,10 @@ const BookNew = () => {
     shouldFocusError: false,
   });
 
-  const { getAccessToken } = useAuth();
+  const { accessToken: api_token } = useAuth();
 
   const urlUsersApi =
     "https://api-for-missions-and-railways.herokuapp.com/books";
-  const api_token = getAccessToken();
 
   const onSubmit = (data: any) => {
     console.log(data);
