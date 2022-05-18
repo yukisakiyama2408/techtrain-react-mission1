@@ -87,6 +87,7 @@ const Profile = () => {
             <Controller
               name="name"
               control={control}
+              defaultValue={userName}
               rules={{
                 required: "入力必須ですよ！",
                 maxLength: {
@@ -102,7 +103,6 @@ const Profile = () => {
                   label="お名前"
                   required
                   value={value}
-                  defaultValue={userName}
                   variant="outlined"
                   margin="dense"
                   onChange={onChange}
