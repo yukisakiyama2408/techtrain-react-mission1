@@ -2,10 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
-
-//import { DeleteReview } from "../Books/BookDelete";
 
 type Book = {
   title: string;
@@ -18,6 +16,7 @@ type Book = {
 
 const BooksDetail = () => {
   const { accessToken: api_token } = useAuth();
+  const navigate = useNavigate();
 
   const { id } = useParams();
   const bookDetailUrl = `https://api-for-missions-and-railways.herokuapp.com/books/${id}`;
@@ -39,18 +38,24 @@ const BooksDetail = () => {
   }, [id]);
 
   const DeleteReview = () => {
-    axios
-      .delete(bookDetailUrl, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${api_token}`,
-        },
-        data: {},
-      })
-      .then((res) => {
-        alert("削除しました!");
-        console.log(res.data);
-      });
+    const confirm = window.confirm("本当にレビュー削除しますか");
+    if (confirm) {
+      return axios
+        .delete(bookDetailUrl, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${api_token}`,
+          },
+          data: {},
+        })
+        .then((res) => {
+          alert("削除しました!");
+          console.log(res.data);
+          navigate("/book-index");
+        });
+    } else {
+      return navigate("/book-index");
+    }
   };
 
   return (

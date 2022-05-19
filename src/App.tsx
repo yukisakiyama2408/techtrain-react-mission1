@@ -1,10 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import "./CSS/App.css";
 import { Signup } from "./Users/Signup";
@@ -29,14 +23,7 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/user-update" element={<UserUpdate />} />
-            <Route
-              path="/book-index"
-              element={
-                //<RequireAuth>
-                <BookIndex />
-                //</RequireAuth>
-              }
-            />
+            <Route path="/book-index" element={<BookIndex />} />
             <Route path="/new" element={<BookNew />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/detail/:id" element={<BooksDetail />} />

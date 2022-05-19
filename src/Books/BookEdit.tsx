@@ -22,11 +22,6 @@ const BookEdit = () => {
 
   const [book, setBook] = useState<Book | null>(null);
 
-  //const [bookTitle, setBookTitle] = useState("");
-  //const [bookUrl, setBookUrl] = useState("");
-  //const [bookDetail, setBookDetail] = useState("");
-  //const [bookReview, setBookReview] = useState("");
-
   const {
     register,
     handleSubmit,
@@ -51,10 +46,6 @@ const BookEdit = () => {
       })
       .then((res) => {
         setBook(res.data);
-        //setBookTitle(res.data.title);
-        //setBookUrl(res.data.url);
-        //setBookDetail(res.data.detail);
-        //setBookReview(res.data.review);
       });
   }, []);
 
