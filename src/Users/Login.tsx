@@ -38,89 +38,90 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>ログイン</h1>
-      <Box
-        component="form"
-        marginTop="50px"
-        width="100%"
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <div>
-          <Controller
-            name="email"
-            control={control}
-            rules={{
-              required: "入力必須ですよ！",
-              maxLength: {
-                value: 30,
-                message: "30文字以下で入力してくださいね！",
-              },
-            }}
-            render={({
-              field: { onBlur, onChange, value },
-              fieldState: { error },
-            }) => (
-              <TextField
-                label="メールアドレス"
-                required
-                value={value}
-                variant="outlined"
-                margin="dense"
-                onChange={onChange}
-                onBlur={onBlur}
-                error={Boolean(error)}
-                helperText={error?.message}
-              />
-            )}
-          />
-        </div>
-        <div>
-          <Controller
-            name="password"
-            control={control}
-            rules={{
-              required: "入力必須ですよ！",
-              maxLength: {
-                value: 30,
-                message: "30文字以下で入力してくださいね！",
-              },
-            }}
-            render={({
-              field: { onBlur, onChange, value },
-              fieldState: { error },
-            }) => (
-              <TextField
-                label="パスワード"
-                required
-                value={value}
-                variant="outlined"
-                margin="dense"
-                onChange={onChange}
-                onBlur={onBlur}
-                error={Boolean(error)}
-                helperText={error?.message}
-              />
-            )}
-          />
-        </div>
-        <div>
-          <Button
-            type="submit"
-            color="primary"
-            variant="contained"
-            size="large"
-          >
-            ログイン
-          </Button>
-        </div>
-      </Box>
+    <div className="login">
+      <div>
+        <h1>ログイン</h1>
+        <Box
+          component="form"
+          width="100%"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div>
+            <Controller
+              name="email"
+              control={control}
+              rules={{
+                required: "入力必須ですよ！",
+                maxLength: {
+                  value: 30,
+                  message: "30文字以下で入力してくださいね！",
+                },
+              }}
+              render={({
+                field: { onBlur, onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  label="メールアドレス"
+                  required
+                  value={value}
+                  variant="outlined"
+                  margin="dense"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={Boolean(error)}
+                  helperText={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div>
+            <Controller
+              name="password"
+              control={control}
+              rules={{
+                required: "入力必須ですよ！",
+                maxLength: {
+                  value: 30,
+                  message: "30文字以下で入力してくださいね！",
+                },
+              }}
+              render={({
+                field: { onBlur, onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  label="パスワード"
+                  required
+                  value={value}
+                  variant="outlined"
+                  margin="dense"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={Boolean(error)}
+                  helperText={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div>
+            <Button
+              type="submit"
+              color="primary"
+              variant="contained"
+              size="large"
+            >
+              ログイン
+            </Button>
+          </div>
+        </Box>
 
-      <p>ユーザー登録はこちらから</p>
-      <Link to="/signup">Signup</Link>
+        <p>ユーザー登録はこちらから</p>
+        <Link to="/signup">Signup</Link>
+      </div>
     </div>
   );
 };

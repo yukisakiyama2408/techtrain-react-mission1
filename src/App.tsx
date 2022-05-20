@@ -41,39 +41,40 @@ const Menu = () => {
 
   const isSignedIn = accessToken != null;
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        {isSignedIn && (
-          <>
-            <li>
-              <Link to="/book-index">Signup</Link>
-            </li>
-            <li>
-              <Link to="/book-index">Login</Link>
-            </li>
-            <li>
-              <Link to="/book-index">Books</Link>
-            </li>
-          </>
-        )}
-        {!isSignedIn && (
-          <>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/login">Books</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+    <header>
+      {isSignedIn && (
+        <div className="headers">
+          <div className="header0">
+            <Link to="/">Home</Link>
+          </div>
+          <div className="header1">
+            <Link to="/book-index">Signup</Link>
+          </div>
+          <div className="header2">
+            <Link to="/book-index">Login</Link>
+          </div>
+          <div className="header3">
+            <Link to="/book-index">Books</Link>
+          </div>
+        </div>
+      )}
+      {!isSignedIn && (
+        <div className="headers">
+          <div className="header0">
+            <Link to="/">Home</Link>
+          </div>
+          <div className="header1">
+            <Link to="/signup">Signup</Link>
+          </div>
+          <div className="header2">
+            <Link to="/login">Login</Link>
+          </div>
+          <div className="header3">
+            <Link to="/login">Books</Link>
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 
