@@ -68,12 +68,12 @@ const BookIndex = () => {
   };
 
   return (
-    <>
-      <div>
+    <div>
+      <header>
         {isSignedIn && (
           <>
-            <header>ようこそ{User}</header>
-            <header>
+            <div>ようこそ{User}</div>
+            <div>
               <Button
                 variant="contained"
                 onClick={() => {
@@ -82,24 +82,24 @@ const BookIndex = () => {
               >
                 Sign Out
               </Button>
-            </header>
-            <header>
-              <Link to="/profile">ユーザー情報を編集する</Link>
-            </header>
+            </div>
+            <div>
+              <Link to="/profile">ユーザー情報の編集</Link>
+            </div>
           </>
         )}
         {!isSignedIn && (
-          <header>
-            <Link to="/login">Login</Link>
-          </header>
+          <div>
+            <Link to="/login">ログイン</Link>
+          </div>
         )}
-        <header>
-          <Link to="/new">書籍を登録する</Link>
-        </header>
-      </div>
+        <div>
+          <Link to="/new">レビュー登録</Link>
+        </div>
+      </header>
       <div>
         <h2>本一覧</h2>
-        <Table>
+        <Table className="book-table">
           <TableHead>
             <TableRow>
               <TableCell>タイトル</TableCell>
@@ -163,7 +163,7 @@ const BookIndex = () => {
           ))}
         </div> */}
       </div>
-    </>
+    </div>
   );
 };
 
