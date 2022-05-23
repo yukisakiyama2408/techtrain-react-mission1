@@ -131,15 +131,16 @@ const BookIndex = () => {
             })}
           </TableBody>
           {/* <TableFooter>
-					<TablePagination
-					  count={users.length}
-					  page={page}
-					  onChangePage={(e, newPage) => setPage(newPage)}
-					  rowsPerPageOptions={[]}
-					  rowsPerPage={perPage}
-					></TablePagination>
-				</TableFooter> */}
+            <TablePagination
+              count={books.length}
+              page={page}
+              onChangePage={(e, newPage) => setPage(newPage)}
+              rowsPerPageOptions={[]}
+              rowsPerPage={perPage}
+            ></TablePagination>
+          </TableFooter> */}
         </Table>
+
         {/* <div>
           {books.map((data) => (
             <>

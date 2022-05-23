@@ -37,20 +37,9 @@
   }
 }
 
-.header0 {
-  float: left;
-}
-
-.header1 {
-  float: left;
-}
-
-.header2 {
-  float: left;
-}
-
-.header3 {
-  float: left;
+.home {
+  display: flex;
+  justify-content: center;
 }
 
 .signup {

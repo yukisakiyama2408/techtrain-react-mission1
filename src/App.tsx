@@ -42,38 +42,9 @@ const Menu = () => {
   const isSignedIn = accessToken != null;
   return (
     <header>
-      {isSignedIn && (
-        <div className="headers">
-          <div className="header0">
-            <Link to="/">Home</Link>
-          </div>
-          <div className="header1">
-            <Link to="/book-index">Signup</Link>
-          </div>
-          <div className="header2">
-            <Link to="/book-index">Login</Link>
-          </div>
-          <div className="header3">
-            <Link to="/book-index">Books</Link>
-          </div>
-        </div>
-      )}
-      {!isSignedIn && (
-        <div className="headers">
-          <div className="header0">
-            <Link to="/">Home</Link>
-          </div>
-          <div className="header1">
-            <Link to="/signup">Signup</Link>
-          </div>
-          <div className="header2">
-            <Link to="/login">Login</Link>
-          </div>
-          <div className="header3">
-            <Link to="/login">Books</Link>
-          </div>
-        </div>
-      )}
+      <div className="header0">
+        <Link to="/">Home</Link>
+      </div>
     </header>
   );
 };
