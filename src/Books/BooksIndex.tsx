@@ -20,14 +20,14 @@ const BookIndex = () => {
   const { accessToken, signout } = useAuth();
   const api_token = accessToken;
   const urlBooksApi =
-    "https://api-for-missions-and-railways.herokuapp.com/books?offset=20";
+    "https://api-for-missions-and-railways.herokuapp.com/books";
   const [books, setBooks] = useState<Array<any>>([]);
   const [page, setPage] = useState(0);
   const perPage = 10;
 
   useEffect(() => {
     axios
-      .get(urlBooksApi, {
+      .get(`${urlBooksApi}?offset=${page * 10}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${api_token}`,
@@ -37,7 +37,7 @@ const BookIndex = () => {
       .then((res) => {
         setBooks(res.data);
       });
-  }, []);
+  }, [page]);
 
   const [user, setUser] = useState("");
 
@@ -112,7 +112,7 @@ const BookIndex = () => {
           </TableHead>
           <TableBody>
             {/* perPageごとにユーザーをスライス */}
-            {books.slice(page * perPage, (page + 1) * perPage).map((data) => {
+            {books.map((data) => {
               return (
                 <TableRow key={data.id}>
                   <TableCell>{data.title}</TableCell>
@@ -130,15 +130,15 @@ const BookIndex = () => {
               );
             })}
           </TableBody>
-          {/* <TableFooter>
+          <TableFooter>
             <TablePagination
-              count={books.length}
+              count={100}
               page={page}
-              onChangePage={(e, newPage) => setPage(newPage)}
+              onPageChange={(e, newPage) => setPage(newPage)}
               rowsPerPageOptions={[]}
               rowsPerPage={perPage}
             ></TablePagination>
-          </TableFooter> */}
+          </TableFooter>
         </Table>
 
         {/* <div>
