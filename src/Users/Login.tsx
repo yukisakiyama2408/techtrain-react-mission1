@@ -6,6 +6,8 @@ import { Box } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
 import { Button } from "@material-ui/core";
+// import FormControlLabel from "@mui/material/FormControlLabel";
+// import Checkbox from "@mui/material/Checkbox";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -95,6 +97,7 @@ const Login = () => {
               }) => (
                 <TextField
                   label="パスワード"
+                  type="password"
                   required
                   value={value}
                   variant="outlined"
@@ -107,6 +110,12 @@ const Login = () => {
               )}
             />
           </div>
+          {/* <div>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+          </div> */}
           <div>
             <Button
               type="submit"

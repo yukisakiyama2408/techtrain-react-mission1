@@ -130,6 +130,7 @@ const Signup = () => {
                 <TextField
                   label="パスワード"
                   required
+                  type="password"
                   value={value}
                   variant="outlined"
                   margin="dense"

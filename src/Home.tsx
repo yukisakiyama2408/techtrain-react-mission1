@@ -10,17 +10,23 @@ const Home = () => {
     <div className="home">
       <div>
         <h1>Book Reveiw</h1>
-        <h2>このアプリについて</h2>
+        {/* <h2>このアプリについて</h2>
         <p>
           このアプリはユーザーの皆さんが読んだ本のレビューを登録したり、他の人のレビューを読んだりできます。
         </p>
-        <p>是非読んだ本の記録や気になる本を探す際にご利用ください。</p>
+        <p>是非読んだ本の記録や気になる本を探す際にご利用ください。</p> */}
         {isSignedIn && (
           <div>
             <div>
               <p>書籍レビュー一覧はこちら</p>
               <Button variant="contained" component={Link} to="/book-index">
                 書籍レビュー
+              </Button>
+            </div>
+            <div>
+              <p>書籍レビューを登録する</p>
+              <Button variant="contained" component={Link} to="/new">
+                レビューを登録
               </Button>
             </div>
           </div>
