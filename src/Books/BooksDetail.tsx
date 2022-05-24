@@ -4,6 +4,7 @@ import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 type Book = {
   title: string;
@@ -72,7 +73,11 @@ const BooksDetail = () => {
             <p>投稿者：{book.reviewer}</p>
             {book.isMine && (
               <div>
-                <Button variant="contained" onClick={DeleteReview}>
+                <Button
+                  variant="contained"
+                  onClick={DeleteReview}
+                  startIcon={<DeleteIcon />}
+                >
                   削除
                 </Button>
               </div>
