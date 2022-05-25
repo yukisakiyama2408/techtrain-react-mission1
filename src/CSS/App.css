@@ -42,6 +42,34 @@
   justify-content: center;
 }
 
+.home-box {
+  height: 300px;
+  width: 250px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 2px #000000;
+}
+
+.signout-box {
+  text-align: center;
+}
+
+.home-signup-box {
+  margin: 25px 0px;
+}
+
+.home-signup-btn {
+  width: 200px;
+}
+
+.home-login-box {
+  margin: 25px 0px;
+}
+
+.home-login-btn {
+  width: 200px;
+}
+
 .signup {
   display: flex;
   justify-content: center;

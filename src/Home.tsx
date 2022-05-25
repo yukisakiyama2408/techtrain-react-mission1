@@ -8,8 +8,7 @@ const Home = () => {
   const isSignedIn = accessToken != null;
   return (
     <div className="home">
-      <div>
-        <h1>Book Reveiw</h1>
+      <div className="home-box">
         {/* <h2>このアプリについて</h2>
         <p>
           このアプリはユーザーの皆さんが読んだ本のレビューを登録したり、他の人のレビューを読んだりできます。
@@ -32,16 +31,29 @@ const Home = () => {
           </div>
         )}
         {!isSignedIn && (
-          <div>
+          <div className="signout-box">
             <div>
-              <p>初めての方は</p>
-              <Button variant="contained" component={Link} to="/signup">
+              <h2>Book Reveiw</h2>
+            </div>
+            <div className="home-signup-box">
+              <p>初めての方はこちら</p>
+              <Button
+                variant="contained"
+                component={Link}
+                to="/signup"
+                className="home-signup-btn"
+              >
                 新規登録
               </Button>
             </div>
-            <div>
+            <div className="home-login-box">
               <p>ユーザーの方はこちら</p>
-              <Button variant="contained" component={Link} to="/login">
+              <Button
+                variant="contained"
+                component={Link}
+                to="/login"
+                className="home-login-btn"
+              >
                 ログイン
               </Button>
             </div>
