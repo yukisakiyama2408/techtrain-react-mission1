@@ -15,7 +15,10 @@ const Home = () => {
         </p>
         <p>是非読んだ本の記録や気になる本を探す際にご利用ください。</p> */}
         {isSignedIn && (
-          <div>
+          <div className="signin-box">
+            <div>
+              <h2>Book Reveiw</h2>
+            </div>
             <div>
               <p>書籍レビュー一覧はこちら</p>
               <Button variant="contained" component={Link} to="/book-index">

@@ -13,8 +13,6 @@ import { Profile } from "./Users/Profile";
 import { BookEdit } from "./Books/BookEdit";
 
 const App = () => {
-  // const { accessToken } = useAuth();
-  // const isSignedIn = accessToken != null;
   return (
     <AuthProvider>
       <Router>

@@ -46,7 +46,7 @@
   height: 300px;
   width: 250px;
   padding: 0.5em 1em;
-  margin: 2em 0;
+  margin: 100px 0;
   border: solid 2px #000000;
 }
 
@@ -79,9 +79,42 @@
   margin: 0 auto;
 }
 
+.login-box {
+  height: 350px;
+  width: 250px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 2px #000000;
+}
+
+.login-section {
+  text-align: center;
+}
+
+.login-email {
+  margin: 5px;
+}
+
+.login-password {
+  margin: 5px;
+}
+
+.login-btn-section {
+  margin-top: 30px;
+}
+
+.login-btn {
+  width: 200px;
+}
+
 .login {
   display: flex;
   justify-content: center;
+}
+
+.login-signup {
+  font-size: 15px;
+  padding-top: 30px;
 }
 
 .review-box {
