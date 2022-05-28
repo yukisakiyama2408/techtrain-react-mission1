@@ -166,6 +166,18 @@
   width: 100%;
 }
 
+.move-profile {
+  float: right;
+  font-size: large;
+  margin-right: 10px;
+}
+
+.logout-btn {
+  float: right;
+  font-size: large;
+  margin-right: 10px;
+}
+
 .book-table {
   margin: 20px;
 }

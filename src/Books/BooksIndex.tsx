@@ -3,6 +3,8 @@ import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
 import {
   Button,
   Table,
@@ -14,6 +16,7 @@ import {
   TablePagination,
 } from "@material-ui/core";
 import { isMinusToken } from "typescript";
+import AddCircleSharp from "@mui/icons-material/AddCircleSharp";
 
 const BookIndex = () => {
   const navigate = useNavigate();
@@ -72,19 +75,28 @@ const BookIndex = () => {
       <header>
         {isSignedIn && (
           <>
+            <h2>本一覧</h2>
             <div>ようこそ{User}</div>
-            <div>
-              <Button
+            <div className="logout-btn">
+              <LogoutIcon
+                onClick={() => {
+                  SignOut();
+                }}
+              ></LogoutIcon>
+              {/* <Button
                 variant="contained"
                 onClick={() => {
                   SignOut();
                 }}
               >
                 Sign Out
-              </Button>
+              </Button> */}
             </div>
-            <div>
-              <Link to="/profile">ユーザー情報の編集</Link>
+            <div className="move-profile">
+              <a href="/profile">
+                <AccountCircleIcon />
+              </a>
+              <Link to="/profile"></Link>
             </div>
           </>
         )}
@@ -93,12 +105,14 @@ const BookIndex = () => {
             <Link to="/login">ログイン</Link>
           </div>
         )}
-        <div>
-          <Link to="/new">レビュー登録</Link>
-        </div>
       </header>
       <div>
-        <h2>本一覧</h2>
+        <div>
+          <a href="/new">
+            <AddCircleSharp />
+          </a>
+          <p>レビューを登録する</p>
+        </div>
         <Table className="book-table">
           <TableHead>
             <TableRow>
