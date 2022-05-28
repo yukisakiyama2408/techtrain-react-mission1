@@ -181,3 +181,28 @@
 .book-table {
   margin: 20px;
 }
+
+.profile {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-box {
+  height: 250px;
+  width: 300px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 2px #000000;
+}
+
+.profile-section {
+  text-align: center;
+}
+
+.profile-btn-section {
+  margin-top: 30px;
+}
+
+.profile-btn {
+  width: 200px;
+}
