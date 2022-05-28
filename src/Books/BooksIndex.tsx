@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import ReactPaginate from "react-paginate";
+import LogoutIcon from "@mui/icons-material/Logout";
 import {
   Button,
   Table,

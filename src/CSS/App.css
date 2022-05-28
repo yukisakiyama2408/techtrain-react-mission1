@@ -75,8 +75,41 @@
   justify-content: center;
 }
 
-.signup-form {
-  margin: 0 auto;
+.signup-box {
+  height: 450px;
+  width: 250px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 2px #000000;
+}
+
+.signup-section {
+  text-align: center;
+}
+
+.signup-name {
+  margin: 5px;
+}
+
+.signup-email {
+  margin: 5px;
+}
+
+.signup-password {
+  margin: 5px;
+}
+
+.signup-btn-section {
+  margin-top: 30px;
+}
+
+.signup-btn {
+  width: 80%;
+}
+
+.singup-login {
+  font-size: 15px;
+  padding-top: 30px;
 }
 
 .login-box {

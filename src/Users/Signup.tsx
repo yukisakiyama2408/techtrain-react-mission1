@@ -43,113 +43,121 @@ const Signup = () => {
 
   return (
     <div className="signup">
-      <div className="signup-form">
-        <h1>ユーザ登録</h1>
-        <Box
-          component="form"
-          marginTop="50px"
-          width="100%"
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div>
-            <Controller
-              name="name"
-              control={control}
-              rules={{
-                required: "入力必須ですよ！",
-                maxLength: {
-                  value: 30,
-                  message: "30文字以下で入力してくださいね！",
-                },
-              }}
-              render={({
-                field: { onBlur, onChange, value },
-                fieldState: { error },
-              }) => (
-                <TextField
-                  label="お名前"
-                  required
-                  value={value}
-                  variant="outlined"
-                  margin="dense"
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  error={Boolean(error)}
-                  helperText={error?.message}
-                />
-              )}
-            />
+      <div className="signup-box">
+        <div className="signup-section">
+          <h1>ユーザ登録</h1>
+          <Box
+            component="form"
+            marginTop="50px"
+            width="100%"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <div className="signup-name">
+              <Controller
+                name="name"
+                control={control}
+                rules={{
+                  required: "入力必須ですよ！",
+                  maxLength: {
+                    value: 30,
+                    message: "30文字以下で入力してくださいね！",
+                  },
+                }}
+                render={({
+                  field: { onBlur, onChange, value },
+                  fieldState: { error },
+                }) => (
+                  <TextField
+                    label="お名前"
+                    required
+                    value={value}
+                    variant="outlined"
+                    margin="dense"
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    error={Boolean(error)}
+                    helperText={error?.message}
+                  />
+                )}
+              />
+            </div>
+            <div className="signup-email">
+              <Controller
+                name="email"
+                control={control}
+                rules={{
+                  required: "入力必須ですよ！",
+                  maxLength: {
+                    value: 30,
+                    message: "30文字以下で入力してくださいね！",
+                  },
+                }}
+                render={({
+                  field: { onBlur, onChange, value },
+                  fieldState: { error },
+                }) => (
+                  <TextField
+                    label="メールアドレス"
+                    required
+                    value={value}
+                    variant="outlined"
+                    margin="dense"
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    error={Boolean(error)}
+                    helperText={error?.message}
+                  />
+                )}
+              />
+            </div>
+            <div className="signup-password">
+              <Controller
+                name="password"
+                control={control}
+                rules={{
+                  required: "入力必須ですよ！",
+                  maxLength: {
+                    value: 30,
+                    message: "30文字以下で入力してくださいね！",
+                  },
+                }}
+                render={({
+                  field: { onBlur, onChange, value },
+                  fieldState: { error },
+                }) => (
+                  <TextField
+                    label="パスワード"
+                    required
+                    type="password"
+                    value={value}
+                    variant="outlined"
+                    margin="dense"
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    error={Boolean(error)}
+                    helperText={error?.message}
+                  />
+                )}
+              />
+            </div>
+            <div className="signup-btn-section">
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                className="signup-btn"
+                size="large"
+              >
+                Sing Up
+              </Button>
+            </div>
+          </Box>
+          <div className="singup-login">
+            <Link to="/login">ログインはこちらから</Link>
           </div>
-          <div>
-            <Controller
-              name="email"
-              control={control}
-              rules={{
-                required: "入力必須ですよ！",
-                maxLength: {
-                  value: 30,
-                  message: "30文字以下で入力してくださいね！",
-                },
-              }}
-              render={({
-                field: { onBlur, onChange, value },
-                fieldState: { error },
-              }) => (
-                <TextField
-                  label="メールアドレス"
-                  required
-                  value={value}
-                  variant="outlined"
-                  margin="dense"
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  error={Boolean(error)}
-                  helperText={error?.message}
-                />
-              )}
-            />
-          </div>
-          <div>
-            <Controller
-              name="password"
-              control={control}
-              rules={{
-                required: "入力必須ですよ！",
-                maxLength: {
-                  value: 30,
-                  message: "30文字以下で入力してくださいね！",
-                },
-              }}
-              render={({
-                field: { onBlur, onChange, value },
-                fieldState: { error },
-              }) => (
-                <TextField
-                  label="パスワード"
-                  required
-                  type="password"
-                  value={value}
-                  variant="outlined"
-                  margin="dense"
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  error={Boolean(error)}
-                  helperText={error?.message}
-                />
-              )}
-            />
-          </div>
-          <div>
-            <Button variant="contained" type="submit">
-              Sing Up
-            </Button>
-          </div>
-        </Box>
-        <div className="singup-login">
-          <Link to="/login">ログインはこちらから</Link>
         </div>
       </div>
     </div>
