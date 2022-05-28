@@ -247,3 +247,44 @@
 .new-btn {
   width: 200px;
 }
+
+.edit {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-box {
+  height: auto;
+  width: 300px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 2px #000000;
+}
+
+.edit-section {
+  text-align: center;
+}
+
+.edit-title {
+  margin: 5px;
+}
+
+.edit-url {
+  margin: 5px;
+}
+
+.edit-detail {
+  margin: 5px;
+}
+
+.edit-review {
+  margin: 5px;
+}
+
+.edit-btn-section {
+  margin-top: 30px;
+}
+
+.edit-btn {
+  width: 200px;
+}

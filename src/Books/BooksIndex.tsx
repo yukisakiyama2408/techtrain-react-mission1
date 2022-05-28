@@ -76,13 +76,12 @@ const BookIndex = () => {
         {isSignedIn && (
           <>
             <h2>本一覧</h2>
-            <div>ようこそ{User}</div>
             <div className="logout-btn">
               <LogoutIcon
                 onClick={() => {
                   SignOut();
                 }}
-              ></LogoutIcon>
+              />
               {/* <Button
                 variant="contained"
                 onClick={() => {
@@ -96,7 +95,7 @@ const BookIndex = () => {
               <a href="/profile">
                 <AccountCircleIcon />
               </a>
-              <Link to="/profile"></Link>
+              <p>{User}</p>
             </div>
           </>
         )}
