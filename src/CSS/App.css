@@ -206,3 +206,44 @@
 .profile-btn {
   width: 200px;
 }
+
+.new {
+  display: flex;
+  justify-content: center;
+}
+
+.new-box {
+  height: auto;
+  width: 300px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 2px #000000;
+}
+
+.new-section {
+  text-align: center;
+}
+
+.new-title {
+  margin: 5px;
+}
+
+.new-url {
+  margin: 5px;
+}
+
+.new-detail {
+  margin: 5px;
+}
+
+.new-review {
+  margin: 5px;
+}
+
+.new-btn-section {
+  margin-top: 30px;
+}
+
+.new-btn {
+  width: 200px;
+}
