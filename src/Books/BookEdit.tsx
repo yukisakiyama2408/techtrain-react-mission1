@@ -69,6 +69,7 @@ const BookEdit = () => {
         }
       )
       .then(function (response) {
+        alert("編集しました!");
         console.log(response);
         navigate("/book-index");
       })

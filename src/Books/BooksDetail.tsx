@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import { Edit } from "@material-ui/icons";
 
 type Book = {
   title: string;
@@ -64,19 +66,30 @@ const BooksDetail = () => {
       {book && (
         <div className="review-box">
           <div className="book-review">
-            <h2 className="review-title">{book.title}</h2>
             <a className="review-url" href={book.url}>
-              {book.url}
+              <h2 className="review-title">{book.title}</h2>{" "}
             </a>
-            <p>書籍の説明文：{book.detail}</p>
-            <p>レビュー：{book.review}</p>
+            <h3>書籍の説明文：</h3>
+            <p>{book.detail}</p>
+            <h3>レビュー：</h3>
+            <p>{book.review}</p>
             <p>投稿者：{book.reviewer}</p>
             {book.isMine && (
               <div>
                 <Button
                   variant="contained"
+                  component={Link}
+                  to="/edit"
+                  startIcon={<EditIcon />}
+                  title="レビューを編集する"
+                >
+                  編集
+                </Button>
+                <Button
+                  variant="contained"
                   onClick={DeleteReview}
                   startIcon={<DeleteIcon />}
+                  title="削除する"
                 >
                   削除
                 </Button>

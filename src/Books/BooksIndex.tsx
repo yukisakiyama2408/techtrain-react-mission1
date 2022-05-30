@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+
+import Toolbar from "@mui/material/Toolbar";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
@@ -72,11 +77,23 @@ const BookIndex = () => {
 
   return (
     <div>
-      <header>
-        {isSignedIn && (
-          <>
-            <h2>本一覧</h2>
-            <div className="logout-btn">
+      {isSignedIn && (
+        <>
+          <header className="index-header">
+            <div className="index-title">
+              <h2>本一覧</h2>
+              <LogoutIcon
+                onClick={() => {
+                  SignOut();
+                }}
+                className="logout-btn"
+              />
+              <a href="/profile" className="move-profile">
+                <AccountCircleIcon />
+              </a>
+              <p className="user-name">{User}</p>
+            </div>
+            {/* <div className="logout-btn">
               <LogoutIcon
                 onClick={() => {
                   SignOut();
@@ -90,21 +107,23 @@ const BookIndex = () => {
               >
                 Sign Out
               </Button> */}
-            </div>
+            {/* </div>
             <div className="move-profile">
               <a href="/profile">
                 <AccountCircleIcon />
               </a>
               <p>{User}</p>
-            </div>
-          </>
-        )}
-        {!isSignedIn && (
+            </div> */}
+          </header>
+        </>
+      )}
+      {!isSignedIn && (
+        <header>
           <div>
             <Link to="/login">ログイン</Link>
           </div>
-        )}
-      </header>
+        </header>
+      )}
       <div>
         <div>
           <a href="/new">
@@ -116,7 +135,7 @@ const BookIndex = () => {
           <TableHead>
             <TableRow>
               <TableCell>タイトル</TableCell>
-              <TableCell>URL</TableCell>
+
               <TableCell>本の詳細</TableCell>
               <TableCell>レビュー</TableCell>
               <TableCell>投稿者</TableCell>
@@ -128,9 +147,8 @@ const BookIndex = () => {
             {books.map((data) => {
               return (
                 <TableRow key={data.id}>
-                  <TableCell>{data.title}</TableCell>
                   <TableCell>
-                    <a href={data.url}>URL</a>
+                    <a href={data.url}>{data.title}</a>
                   </TableCell>
                   <TableCell>{data.detail}</TableCell>
                   <TableCell>{data.review}</TableCell>

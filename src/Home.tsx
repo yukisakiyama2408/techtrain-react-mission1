@@ -19,15 +19,29 @@ const Home = () => {
             <div>
               <h2>Book Reveiw</h2>
             </div>
-            <div>
+            <div className="home-index-box">
               <p>書籍レビュー一覧はこちら</p>
-              <Button variant="contained" component={Link} to="/book-index">
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                component={Link}
+                to="/book-index"
+                className="home-index-btn"
+              >
                 書籍レビュー
               </Button>
             </div>
-            <div>
+            <div className="home-new-box">
               <p>書籍レビューを登録する</p>
-              <Button variant="contained" component={Link} to="/new">
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                component={Link}
+                to="/new"
+                className="home-new-btn"
+              >
                 レビューを登録
               </Button>
             </div>
@@ -42,6 +56,8 @@ const Home = () => {
               <p>初めての方はこちら</p>
               <Button
                 variant="contained"
+                color="primary"
+                size="large"
                 component={Link}
                 to="/signup"
                 className="home-signup-btn"
@@ -53,6 +69,8 @@ const Home = () => {
               <p>ユーザーの方はこちら</p>
               <Button
                 variant="contained"
+                color="primary"
+                size="large"
                 component={Link}
                 to="/login"
                 className="home-login-btn"

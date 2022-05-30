@@ -50,6 +50,26 @@
   border: solid 2px #000000;
 }
 
+.signin-box {
+  text-align: center;
+}
+
+.home-index-box {
+  margin: 25px 0px;
+}
+
+.home-index-btn {
+  width: 200px;
+}
+
+.home-new-box {
+  margin: 25px 0px;
+}
+
+.home-new-btn {
+  width: 200px;
+}
+
 .signout-box {
   text-align: center;
 }
@@ -164,6 +184,18 @@
 
 .review-url {
   width: 100%;
+}
+
+.index-header {
+  background-color: #c0c0c0;
+}
+
+.index-title {
+  text-align: center;
+}
+
+.user-name {
+  float: right;
 }
 
 .move-profile {
