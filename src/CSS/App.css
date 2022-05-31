@@ -96,7 +96,7 @@
 }
 
 .signup-box {
-  height: 450px;
+  height: auto;
   width: 250px;
   padding: 0.5em 1em;
   margin: 2em 0;
@@ -120,7 +120,7 @@
 }
 
 .signup-btn-section {
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .signup-btn {
@@ -129,11 +129,11 @@
 
 .singup-login {
   font-size: 15px;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .login-box {
-  height: 350px;
+  height: auto;
   width: 250px;
   padding: 0.5em 1em;
   margin: 2em 0;
@@ -153,7 +153,7 @@
 }
 
 .login-btn-section {
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .login-btn {
@@ -167,7 +167,7 @@
 
 .login-signup {
   font-size: 15px;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .review-box {
@@ -273,7 +273,7 @@
 }
 
 .new-btn-section {
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .new-btn {
@@ -314,7 +314,7 @@
 }
 
 .edit-btn-section {
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .edit-btn {
