@@ -5,7 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import Toolbar from "@mui/material/Toolbar";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -131,8 +134,40 @@ const BookIndex = () => {
           </a>
           <p>レビューを登録する</p>
         </div>
+        <div>
+          {books.map((data) => {
+            return (
+              <Card sx={{ maxWidth: 370 }}>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {data.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {data.detail}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {data.reveiew}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {data.reviewer}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    component={Link}
+                    to={`/detail/${data.id}`}
+                  >
+                    Learn More
+                  </Button>
+                </CardActions>
+              </Card>
+            );
+          })}
+        </div>
+
         <Table className="book-table">
-          <TableHead>
+          {/* <TableHead>
             <TableRow>
               <TableCell>タイトル</TableCell>
 
@@ -144,7 +179,7 @@ const BookIndex = () => {
           </TableHead>
           <TableBody>
             {/* perPageごとにユーザーをスライス */}
-            {books.map((data) => {
+          {/* {books.map((data) => {
               return (
                 <TableRow key={data.id}>
                   <TableCell>
@@ -160,7 +195,7 @@ const BookIndex = () => {
                 </TableRow>
               );
             })}
-          </TableBody>
+          </TableBody> */}
           <TableFooter>
             <TablePagination
               count={100}
