@@ -137,31 +137,36 @@ const BookIndex = () => {
         <div>
           {books.map((data) => {
             return (
-              <Card sx={{ maxWidth: 370 }}>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {data.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {data.detail}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {data.reveiew}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {data.reviewer}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button
-                    size="small"
-                    component={Link}
-                    to={`/detail/${data.id}`}
-                  >
-                    Learn More
-                  </Button>
-                </CardActions>
-              </Card>
+              <div className="card-box">
+                <div className="index-card">
+                  <Card sx={{ maxWidth: 370 }}>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        <a href={data.url}> {data.title}</a>
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {data.detail}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {data.reveiew}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {data.reviewer}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button
+                        size="small"
+                        component={Link}
+                        to={`/detail/${data.id}`}
+                        className="detail-btn"
+                      >
+                        Learn More
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </div>
+              </div>
             );
           })}
         </div>

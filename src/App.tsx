@@ -21,6 +21,8 @@ const App = () => {
         <div>
           <Menu />
           <Routes>
+            {/* <Route path="/" element={isSignedIn ? <Login /> : <BookIndex />} /> */}
+
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />

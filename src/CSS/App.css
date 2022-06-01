@@ -210,6 +210,17 @@
   margin-right: 10px;
 }
 
+/* .card-box {
+  display: flex;
+  justify-content: center;
+} */
+
+.index-card {
+  width: 30%;
+  float: left;
+  margin: 5px;
+}
+
 .book-table {
   margin: 20px;
 }
