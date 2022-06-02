@@ -8,10 +8,12 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import { Container } from "@material-ui/core";
 import CardMedia from "@mui/material/CardMedia";
 import Toolbar from "@mui/material/Toolbar";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { CardActionArea } from "@mui/material";
 import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
 import {
   Button,
@@ -24,6 +26,7 @@ import {
   TablePagination,
 } from "@material-ui/core";
 import { isMinusToken } from "typescript";
+import { MenuAppBar } from "./BookIndexHeader";
 import AddCircleSharp from "@mui/icons-material/AddCircleSharp";
 
 const BookIndex = () => {
@@ -73,17 +76,13 @@ const BookIndex = () => {
   const isSignedIn = accessToken != null;
   const User = user;
 
-  const SignOut = () => {
-    signout();
-    return navigate("/");
-  };
-
   return (
     <div>
       {isSignedIn && (
         <>
+          <MenuAppBar />
           <header className="index-header">
-            <div className="index-title">
+            {/* <div className="index-title">
               <h2>本一覧</h2>
               <LogoutIcon
                 onClick={() => {
@@ -95,7 +94,7 @@ const BookIndex = () => {
                 <AccountCircleIcon />
               </a>
               <p className="user-name">{User}</p>
-            </div>
+            </div> */}
             {/* <div className="logout-btn">
               <LogoutIcon
                 onClick={() => {
@@ -134,42 +133,49 @@ const BookIndex = () => {
           </a>
           <p>レビューを登録する</p>
         </div>
-        <div>
-          {books.map((data) => {
-            return (
-              <div className="card-box">
-                <div className="index-card">
-                  <Card sx={{ maxWidth: 370 }}>
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        <a href={data.url}> {data.title}</a>
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {data.detail}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {data.reveiew}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {data.reviewer}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button
-                        size="small"
+        <Container>
+          <div>
+            {books.map((data) => {
+              return (
+                <div className="card-box">
+                  <div className="index-card">
+                    <Card sx={{ maxWidth: 370 }}>
+                      <CardActionArea
                         component={Link}
                         to={`/detail/${data.id}`}
-                        className="detail-btn"
                       >
-                        Learn More
-                      </Button>
-                    </CardActions>
-                  </Card>
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="div">
+                            {data.title}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {data.detail}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {data.reveiew}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {data.reviewer}
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                          <Button
+                            size="small"
+                            component={Link}
+                            to={`/detail/${data.id}`}
+                            className="detail-btn"
+                          >
+                            Learn More
+                          </Button>
+                        </CardActions>
+                      </CardActionArea>
+                    </Card>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </Container>
 
         <Table className="book-table">
           {/* <TableHead>

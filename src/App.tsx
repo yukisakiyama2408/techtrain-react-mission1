@@ -12,30 +12,42 @@ import { BooksDetail } from "./Books/BooksDetail";
 import { Profile } from "./Users/Profile";
 import { BookEdit } from "./Books/BookEdit";
 
+const HomeRoutes = () => {
+  const { accessToken } = useAuth();
+  const isSignedIn = accessToken != null;
+
+  // if (isSignedIn) {
+  //   return <Route path="/" element={<Home />} />;
+  // } else {
+  //   return <Route path="/" element={<Login />} />;
+  // }
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={isSignedIn ? <BookIndex /> : <Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/user-update" element={<UserUpdate />} />
+        <Route path="/book-index" element={<BookIndex />} />
+        <Route path="/new" element={<BookNew />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/detail/:id" element={<BooksDetail />} />
+        <Route path="/edit/:id" element={<BookEdit />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+};
+
 const App = () => {
-  // const { accessToken } = useAuth();
-  // const isSignedIn = accessToken != null;
   return (
     <AuthProvider>
-      <Router>
-        <div>
+      <div>
+        <Router>
           <Menu />
-          <Routes>
-            {/* <Route path="/" element={isSignedIn ? <Login /> : <BookIndex />} /> */}
-
-            <Route path="/" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/user-update" element={<UserUpdate />} />
-            <Route path="/book-index" element={<BookIndex />} />
-            <Route path="/new" element={<BookNew />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/detail/:id" element={<BooksDetail />} />
-            <Route path="/edit/:id" element={<BookEdit />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </Router>
+          <HomeRoutes />
+        </Router>
+      </div>
     </AuthProvider>
   );
 };
