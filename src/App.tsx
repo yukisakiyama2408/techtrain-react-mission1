@@ -44,24 +44,10 @@ const App = () => {
     <AuthProvider>
       <div>
         <Router>
-          <Menu />
           <HomeRoutes />
         </Router>
       </div>
     </AuthProvider>
-  );
-};
-
-const Menu = () => {
-  const { accessToken } = useAuth();
-
-  const isSignedIn = accessToken != null;
-  return (
-    <header>
-      <div className="header0">
-        <Link to="/">Home</Link>
-      </div>
-    </header>
   );
 };
 
