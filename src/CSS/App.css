@@ -217,6 +217,7 @@
 
 .index-card {
   width: 30%;
+  height: 250px;
   float: left;
   margin: 5px;
 }

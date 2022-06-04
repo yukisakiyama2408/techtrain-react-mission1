@@ -78,135 +78,47 @@ const BookIndex = () => {
 
   return (
     <div>
-      {isSignedIn && (
-        <>
-          <MenuAppBar />
-          <header className="index-header">
-            {/* <div className="index-title">
-              <h2>本一覧</h2>
-              <LogoutIcon
-                onClick={() => {
-                  SignOut();
-                }}
-                className="logout-btn"
-              />
-              <a href="/profile" className="move-profile">
-                <AccountCircleIcon />
-              </a>
-              <p className="user-name">{User}</p>
-            </div> */}
-            {/* <div className="logout-btn">
-              <LogoutIcon
-                onClick={() => {
-                  SignOut();
-                }}
-              />
-              {/* <Button
-                variant="contained"
-                onClick={() => {
-                  SignOut();
-                }}
-              >
-                Sign Out
-              </Button> */}
-            {/* </div>
-            <div className="move-profile">
-              <a href="/profile">
-                <AccountCircleIcon />
-              </a>
-              <p>{User}</p>
-            </div> */}
-          </header>
-        </>
-      )}
-      {!isSignedIn && (
-        <header>
-          <div>
-            <Link to="/login">ログイン</Link>
-          </div>
-        </header>
-      )}
+      <>
+        <MenuAppBar />
+      </>
+      <body></body>
       <div>
+        <Container>
+          <div>
+            {books.map((data) => {
+              return (
+                <div>
+                  <Card className="index-card">
+                    <CardActionArea component={Link} to={`/detail/${data.id}`}>
+                      <CardContent>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          gutterBottom
+                        >
+                          {data.reviewer}さん
+                        </Typography>
+                        <Typography gutterBottom variant="h6" component="div">
+                          {data.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {data.review}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
         <div>
           <a href="/new">
             <AddCircleSharp />
           </a>
           <p>レビューを登録する</p>
         </div>
-        <Container>
-          <div>
-            {books.map((data) => {
-              return (
-                <div className="card-box">
-                  <div className="index-card">
-                    <Card sx={{ maxWidth: 370 }}>
-                      <CardActionArea
-                        component={Link}
-                        to={`/detail/${data.id}`}
-                      >
-                        <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
-                            {data.title}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {data.detail}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {data.reveiew}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {data.reviewer}
-                          </Typography>
-                        </CardContent>
-                        <CardActions>
-                          <Button
-                            size="small"
-                            component={Link}
-                            to={`/detail/${data.id}`}
-                            className="detail-btn"
-                          >
-                            Learn More
-                          </Button>
-                        </CardActions>
-                      </CardActionArea>
-                    </Card>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-
         <Table className="book-table">
-          {/* <TableHead>
-            <TableRow>
-              <TableCell>タイトル</TableCell>
-
-              <TableCell>本の詳細</TableCell>
-              <TableCell>レビュー</TableCell>
-              <TableCell>投稿者</TableCell>
-              <TableCell>アクション</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {/* perPageごとにユーザーをスライス */}
-          {/* {books.map((data) => {
-              return (
-                <TableRow key={data.id}>
-                  <TableCell>
-                    <a href={data.url}>{data.title}</a>
-                  </TableCell>
-                  <TableCell>{data.detail}</TableCell>
-                  <TableCell>{data.review}</TableCell>
-                  <TableCell>{data.reviewer}</TableCell>
-                  <TableCell>
-                    <Link to={`/detail/${data.id}`}>詳細</Link>
-                    {data.isMine && <Link to={`/edit/${data.id}`}>編集</Link>}
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody> */}
           <TableFooter>
             <TablePagination
               count={100}
@@ -217,28 +129,6 @@ const BookIndex = () => {
             ></TablePagination>
           </TableFooter>
         </Table>
-
-        {/* <div>
-          {books.map((data) => (
-            <>
-              <div key={data.id}>
-                <h2>{data.title}</h2>
-                <a href={data.url}>{data.url}</a>
-                <p>{data.detail}</p>
-                <p>{data.review}</p>
-                <p>{data.reviewer}</p>
-                <div>
-                  <Link to={`/detail/${data.id}`}>詳細</Link>
-                </div>
-                {data.isMine && (
-                  <div>
-                    <Link to={`/edit/${data.id}`}>編集</Link>
-                  </div>
-                )}
-              </div>
-            </>
-          ))}
-        </div> */}
       </div>
     </div>
   );

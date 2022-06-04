@@ -10,6 +10,7 @@ import { useAuth } from "../Contexts/AuthContext";
 import { Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import MoreIcon from "@mui/icons-material/MoreVert";
 
 const MenuAppBar = () => {
   const { accessToken } = useAuth();
@@ -36,16 +37,6 @@ const MenuAppBar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-
           <Typography
             variant="h6"
             noWrap
@@ -64,7 +55,6 @@ const MenuAppBar = () => {
           >
             Book Reviews
           </Typography>
-
           <div>
             <IconButton
               size="large"
@@ -74,7 +64,7 @@ const MenuAppBar = () => {
               onClick={handleMenu}
               color="inherit"
             >
-              <AccountCircle />
+              <MoreIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -94,9 +84,18 @@ const MenuAppBar = () => {
               <MenuItem onClick={handleClose}>
                 {isSignedIn && (
                   <Button component={Link} to={"/profile"}>
+                    Logout
+                  </Button>
+                )}
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                {isSignedIn && (
+                  <Button component={Link} to={"/profile"}>
                     Edit Profile
                   </Button>
                 )}
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
                 {!isSignedIn && (
                   <Button component={Link} to={"/login"}>
                     Login
