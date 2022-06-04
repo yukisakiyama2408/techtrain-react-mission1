@@ -331,3 +331,21 @@
 .edit-btn {
   width: 200px;
 }
+
+.detail-card-box {
+  display: flex;
+  justify-content: center;
+}
+
+.detail-card {
+  width: 500px;
+  height: auto;
+}
+
+.detail-edit-btn {
+  float: right;
+}
+
+.delete-btn {
+  float: right;
+}

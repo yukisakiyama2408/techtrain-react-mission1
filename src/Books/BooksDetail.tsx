@@ -6,9 +6,15 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import { Edit } from "@material-ui/icons";
+import Box from "@mui/material/Box";
+import Container from "@material-ui/core/Container";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 type Book = {
+  id: string;
   title: string;
   url: string;
   detail: string;
@@ -64,41 +70,37 @@ const BooksDetail = () => {
   return (
     <>
       {book && (
-        <div className="review-box">
-          <div className="book-review">
-            <a className="review-url" href={book.url}>
-              <h2 className="review-title">{book.title}</h2>{" "}
-            </a>
-            <h3>書籍の説明文：</h3>
-            <p>{book.detail}</p>
-            <h3>レビュー：</h3>
-            <p>{book.review}</p>
-            <p>投稿者：{book.reviewer}</p>
-            {book.isMine && (
-              <div>
-                <Button
-                  variant="contained"
-                  component={Link}
-                  to="/edit"
-                  startIcon={<EditIcon />}
-                  title="レビューを編集する"
-                >
-                  編集
-                </Button>
-                <Button
-                  variant="contained"
-                  onClick={DeleteReview}
-                  startIcon={<DeleteIcon />}
-                  title="削除する"
-                >
-                  削除
-                </Button>
-              </div>
-            )}
-            <p>
-              <Link to="/book-index">戻る</Link>
-            </p>
-          </div>
+        <div className="detail-card-box">
+          <Card className="detail-card">
+            <CardContent>
+              <Typography
+                sx={{ fontSize: 14 }}
+                color="text.secondary"
+                gutterBottom
+              ></Typography>
+              <Typography variant="h5" component="div">
+                <a className="review-url" href={book.url}>
+                  {book.title}
+                </a>
+              </Typography>
+
+              <Typography variant="body2">{book.detail}</Typography>
+              <Typography variant="h6"> {book.reviewer}'s review </Typography>
+              <Typography variant="body2">{book.review}</Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                component={Link}
+                to={`/edit/${book.id}`}
+                className="detail-edit-btn"
+              >
+                <EditIcon />
+              </Button>
+              <Button onClick={DeleteReview} className="delete-btn">
+                <DeleteIcon />
+              </Button>
+            </CardActions>
+          </Card>
         </div>
       )}
     </>
