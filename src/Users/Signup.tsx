@@ -5,7 +5,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { Box } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
-import { Button } from "@material-ui/core";
+import Button from "@mui/material/Button";
+import Avatar from "@mui/material/Avatar";
+import CssBaseline from "@mui/material/CssBaseline";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Grid from "@mui/material/Grid";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme();
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -43,7 +54,144 @@ const Signup = () => {
 
   return (
     <div className="signup">
-      <div className="signup-box">
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              ユーザー登録
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit(onSubmit)}
+              sx={{ mt: 3 }}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Controller
+                    name="name"
+                    control={control}
+                    rules={{
+                      required: "入力必須ですよ！",
+                      maxLength: {
+                        value: 30,
+                        message: "30文字以下で入力してくださいね！",
+                      },
+                    }}
+                    render={({
+                      field: { onBlur, onChange, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextField
+                        label="お名前"
+                        required
+                        fullWidth
+                        id="fullName"
+                        value={value}
+                        variant="outlined"
+                        margin="dense"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        error={Boolean(error)}
+                        helperText={error?.message}
+                      />
+                    )}
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Controller
+                    name="email"
+                    control={control}
+                    rules={{
+                      required: "入力必須ですよ！",
+                      maxLength: {
+                        value: 30,
+                        message: "30文字以下で入力してくださいね！",
+                      },
+                    }}
+                    render={({
+                      field: { onBlur, onChange, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextField
+                        label="メールアドレス"
+                        fullWidth
+                        required
+                        value={value}
+                        variant="outlined"
+                        margin="dense"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        error={Boolean(error)}
+                        helperText={error?.message}
+                      />
+                    )}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Controller
+                    name="password"
+                    control={control}
+                    rules={{
+                      required: "入力必須ですよ！",
+                      maxLength: {
+                        value: 30,
+                        message: "30文字以下で入力してくださいね！",
+                      },
+                    }}
+                    render={({
+                      field: { onBlur, onChange, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextField
+                        label="パスワード"
+                        fullWidth
+                        required
+                        type="password"
+                        id="password"
+                        autoComplete="new-password"
+                        value={value}
+                        variant="outlined"
+                        margin="dense"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        error={Boolean(error)}
+                        helperText={error?.message}
+                      />
+                    )}
+                  />
+                </Grid>
+              </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+              <Grid container justifyContent="flex-end">
+                <Grid item>
+                  <Link to={"/login"}>ログインはこちらから</Link>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </Container>
+      </ThemeProvider>
+      {/* <div className="signup-box">
         <div className="signup-section">
           <h1>ユーザ登録</h1>
           <Box
@@ -159,7 +307,7 @@ const Signup = () => {
             <Link to="/login">ログインはこちらから</Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
