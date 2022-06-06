@@ -99,7 +99,7 @@ const Signup = () => {
                         id="fullName"
                         value={value}
                         variant="outlined"
-                        margin="dense"
+                        margin="normal"
                         onChange={onChange}
                         onBlur={onBlur}
                         error={Boolean(error)}
@@ -130,7 +130,7 @@ const Signup = () => {
                         required
                         value={value}
                         variant="outlined"
-                        margin="dense"
+                        margin="normal"
                         onChange={onChange}
                         onBlur={onBlur}
                         error={Boolean(error)}
@@ -158,12 +158,12 @@ const Signup = () => {
                         label="パスワード"
                         fullWidth
                         required
+                        margin="normal"
                         type="password"
                         id="password"
                         autoComplete="new-password"
                         value={value}
                         variant="outlined"
-                        margin="dense"
                         onChange={onChange}
                         onBlur={onBlur}
                         error={Boolean(error)}

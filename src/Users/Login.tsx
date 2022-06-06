@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
 import Avatar from "@mui/material/Avatar";
 import CssBaseline from "@mui/material/CssBaseline";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
@@ -14,7 +12,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
-import { Button } from "@material-ui/core";
+import Button from "@mui/material/Button";
 
 const theme = createTheme();
 
@@ -87,6 +85,7 @@ const Login = () => {
                   fieldState: { error },
                 }) => (
                   <TextField
+                    margin="normal"
                     label="メールアドレス"
                     id="email"
                     fullWidth
@@ -94,7 +93,6 @@ const Login = () => {
                     required
                     value={value}
                     variant="outlined"
-                    margin="dense"
                     onChange={onChange}
                     onBlur={onBlur}
                     error={Boolean(error)}
@@ -124,7 +122,7 @@ const Login = () => {
                     fullWidth
                     value={value}
                     variant="outlined"
-                    margin="dense"
+                    margin="normal"
                     onChange={onChange}
                     onBlur={onBlur}
                     error={Boolean(error)}
@@ -137,6 +135,7 @@ const Login = () => {
                 type="submit"
                 color="primary"
                 variant="contained"
+                sx={{ mt: 3, mb: 2 }}
                 fullWidth
                 size="large"
                 className="login-btn"
@@ -145,7 +144,7 @@ const Login = () => {
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link to={"/signup"}>{"Don't have an account? Sign Up"}</Link>
+                  <Link to={"/signup"}>ユーザー登録はこちらから</Link>
                 </Grid>
               </Grid>
             </Box>
