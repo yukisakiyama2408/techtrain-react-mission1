@@ -9,6 +9,8 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import { Container } from "@material-ui/core";
+import Pagination from "@mui/material/Pagination";
+
 import CardMedia from "@mui/material/CardMedia";
 import Toolbar from "@mui/material/Toolbar";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -27,6 +29,7 @@ import {
 } from "@material-ui/core";
 import { isMinusToken } from "typescript";
 import { MenuAppBar } from "./BookIndexHeader";
+import { BottomAppBar } from "./BookIndexBottom";
 import AddCircleSharp from "@mui/icons-material/AddCircleSharp";
 
 const BookIndex = () => {
@@ -81,7 +84,6 @@ const BookIndex = () => {
       <>
         <MenuAppBar />
       </>
-      <body></body>
       <div>
         <Container>
           <div>
@@ -112,24 +114,20 @@ const BookIndex = () => {
             })}
           </div>
         </Container>
-        <div>
-          <a href="/new">
-            <AddCircleSharp />
-          </a>
-          <p>レビューを登録する</p>
-        </div>
         <Table className="book-table">
-          <TableFooter>
-            <TablePagination
-              count={100}
-              page={page}
-              onPageChange={(e, newPage) => setPage(newPage)}
-              rowsPerPageOptions={[]}
-              rowsPerPage={perPage}
-            ></TablePagination>
-          </TableFooter>
+          <TablePagination
+            count={100}
+            page={page}
+            onPageChange={(e, newPage) => setPage(newPage)}
+            rowsPerPageOptions={[]}
+            rowsPerPage={perPage}
+          />
         </Table>
       </div>
+      <div>
+        <BottomAppBar />
+      </div>
+      {/* <BottomAppBar /> */}
     </div>
   );
 };
