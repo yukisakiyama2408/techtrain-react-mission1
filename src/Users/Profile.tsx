@@ -7,7 +7,12 @@ import { useNavigate } from "react-router-dom";
 import { Box } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
-import { Button } from "@material-ui/core";
+import Avatar from "@mui/material/Avatar";
+import CssBaseline from "@mui/material/CssBaseline";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -71,64 +76,123 @@ const Profile = () => {
 
   return (
     <div className="profile">
-      <div className="profile-box">
-        <div className="profile-section">
-          <h1>ユーザー情報編集</h1>
-          {userName && (
+      {userName && (
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <AccountCircleIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              ユーザー情報編集
+            </Typography>
             <Box
               component="form"
-              marginTop="50px"
-              width="100%"
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
               onSubmit={handleSubmit(onSubmit)}
+              sx={{ mt: 1 }}
             >
-              <div className="profile-name">
-                <Controller
-                  name="name"
-                  control={control}
-                  defaultValue={userName}
-                  rules={{
-                    required: "入力必須ですよ！",
-                    maxLength: {
-                      value: 30,
-                      message: "30文字以下で入力してくださいね！",
-                    },
-                  }}
-                  render={({
-                    field: { onBlur, onChange, value },
-                    fieldState: { error },
-                  }) => (
-                    <TextField
-                      label="お名前"
-                      required
-                      value={value}
-                      variant="outlined"
-                      margin="dense"
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      error={Boolean(error)}
-                      helperText={error?.message}
-                    />
-                  )}
-                />
-              </div>
-              <div className="profile-btn-section">
-                <Button
-                  variant="contained"
-                  type="submit"
-                  color="primary"
-                  size="large"
-                  className="profile-btn"
-                >
-                  更新する
-                </Button>
-              </div>
+              <Controller
+                name="name"
+                control={control}
+                defaultValue={userName}
+                rules={{
+                  required: "入力必須ですよ！",
+                  maxLength: {
+                    value: 30,
+                    message: "30文字以下で入力してくださいね！",
+                  },
+                }}
+                render={({
+                  field: { onBlur, onChange, value },
+                  fieldState: { error },
+                }) => (
+                  <TextField
+                    label="お名前"
+                    fullWidth
+                    margin="normal"
+                    required
+                    value={value}
+                    variant="outlined"
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    error={Boolean(error)}
+                    helperText={error?.message}
+                  />
+                )}
+              />
+
+              <Button
+                type="submit"
+                color="primary"
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                fullWidth
+                size="large"
+              >
+                更新する
+              </Button>
             </Box>
-          )}
-        </div>
-      </div>
+          </Box>
+        </Container>
+        // <Box
+        //   component="form"
+        //   marginTop="50px"
+        //   width="100%"
+        //   display="flex"
+        //   flexDirection="column"
+        //   justifyContent="center"
+        //   onSubmit={handleSubmit(onSubmit)}
+        // >
+        //   <div className="profile-name">
+        //     <Controller
+        //       name="name"
+        //       control={control}
+        //       defaultValue={userName}
+        //       rules={{
+        //         required: "入力必須ですよ！",
+        //         maxLength: {
+        //           value: 30,
+        //           message: "30文字以下で入力してくださいね！",
+        //         },
+        //       }}
+        //       render={({
+        //         field: { onBlur, onChange, value },
+        //         fieldState: { error },
+        //       }) => (
+        //         <TextField
+        //           label="お名前"
+        //           required
+        //           value={value}
+        //           variant="outlined"
+        //           margin="dense"
+        //           onChange={onChange}
+        //           onBlur={onBlur}
+        //           error={Boolean(error)}
+        //           helperText={error?.message}
+        //         />
+        //       )}
+        //     />
+        //   </div>
+        //   <div className="profile-btn-section">
+        //     <Button
+        //       variant="contained"
+        //       type="submit"
+        //       color="primary"
+        //       size="large"
+        //       className="profile-btn"
+        //     >
+        //       更新する
+        //     </Button>
+        //   </div>
+        // </Box>
+      )}
     </div>
   );
 };

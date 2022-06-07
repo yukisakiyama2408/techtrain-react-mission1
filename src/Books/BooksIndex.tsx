@@ -2,39 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import { Container } from "@material-ui/core";
-import Pagination from "@mui/material/Pagination";
-
-import CardMedia from "@mui/material/CardMedia";
-import Toolbar from "@mui/material/Toolbar";
-import LogoutIcon from "@mui/icons-material/Logout";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { CardActionArea } from "@mui/material";
-import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
-import {
-  Button,
-  Table,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-  TableFooter,
-  TablePagination,
-} from "@material-ui/core";
-import { isMinusToken } from "typescript";
+import { Table, TablePagination } from "@material-ui/core";
 import { MenuAppBar } from "./BookIndexHeader";
 import { BottomAppBar } from "./BookIndexBottom";
-import AddCircleSharp from "@mui/icons-material/AddCircleSharp";
 
 const BookIndex = () => {
   const navigate = useNavigate();
-  const { accessToken, signout } = useAuth();
+  const { accessToken } = useAuth();
   const api_token = accessToken;
   const urlBooksApi =
     "https://api-for-missions-and-railways.herokuapp.com/books";
@@ -76,8 +55,6 @@ const BookIndex = () => {
   }, []);
 
   console.log(books);
-  const isSignedIn = accessToken != null;
-  const User = user;
 
   return (
     <div>
@@ -125,7 +102,6 @@ const BookIndex = () => {
       <div>
         <BottomAppBar />
       </div>
-      {/* <BottomAppBar /> */}
     </div>
   );
 };
