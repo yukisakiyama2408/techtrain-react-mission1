@@ -85,35 +85,33 @@ const BookIndex = () => {
         <MenuAppBar />
       </>
       <div>
-        <Container>
-          <div>
-            {books.map((data) => {
-              return (
-                <div>
-                  <Card className="index-card">
-                    <CardActionArea component={Link} to={`/detail/${data.id}`}>
-                      <CardContent>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          gutterBottom
-                        >
-                          {data.reviewer}さん
-                        </Typography>
-                        <Typography gutterBottom variant="h6" component="div">
-                          {data.title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {data.review}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </div>
-              );
-            })}
-          </div>
-        </Container>
+        <div className="index-box">
+          {books.map((data) => {
+            return (
+              <Container maxWidth="sm">
+                <Card className="index-card">
+                  <CardActionArea component={Link} to={`/detail/${data.id}`}>
+                    <CardContent>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        gutterBottom
+                      >
+                        {data.reviewer}さん
+                      </Typography>
+                      <Typography gutterBottom variant="h6" component="div">
+                        {data.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {data.review}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Container>
+            );
+          })}
+        </div>
         <Table className="book-table">
           <TablePagination
             count={100}

@@ -215,10 +215,13 @@
   justify-content: center;
 } */
 
+.index-box {
+  margin-top: 20px;
+}
+
 .index-card {
-  width: 30%;
-  height: 250px;
-  float: left;
+  width: 80%;
+  height: auto;
   margin: 5px;
 }
 
