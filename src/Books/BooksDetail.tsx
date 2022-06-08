@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import { MenuAppBar } from "./BookIndexHeader";
 import { Button } from "@material-ui/core";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -69,6 +70,7 @@ const BooksDetail = () => {
 
   return (
     <>
+      <MenuAppBar />
       {book && (
         <div className="detail-card-box">
           <Card className="detail-card">
@@ -89,16 +91,22 @@ const BooksDetail = () => {
               <Typography variant="body2">{book.review}</Typography>
             </CardContent>
             <CardActions>
-              <Button
-                component={Link}
-                to={`/edit/${book.id}`}
-                className="detail-edit-btn"
-              >
-                <EditIcon />
-              </Button>
-              <Button onClick={DeleteReview} className="delete-btn">
-                <DeleteIcon />
-              </Button>
+              {book.isMine && (
+                <>
+                  {" "}
+                  <Button
+                    component={Link}
+                    to={`/edit/${book.id}`}
+                    className="detail-edit-btn"
+                  >
+                    <EditIcon />
+                  </Button>
+                  <Button onClick={DeleteReview} className="delete-btn">
+                    <DeleteIcon />
+                  </Button>
+                </>
+              )}
+              <Link to="/book-index">戻る</Link>
             </CardActions>
           </Card>
         </div>

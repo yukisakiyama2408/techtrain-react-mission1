@@ -81,29 +81,52 @@ const MenuAppBar = () => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>
+              {isSignedIn && (
+                <>
+                  {" "}
+                  <MenuItem onClick={handleClose}>
+                    {" "}
+                    <Button component={Link} to={"/profile"}>
+                      Logout
+                    </Button>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    {" "}
+                    <Button component={Link} to={"/profile"}>
+                      Edit Profile
+                    </Button>
+                  </MenuItem>
+                </>
+              )}
+              {/* <MenuItem onClick={handleClose}>
                 {isSignedIn && (
-                  <Button component={Link} to={"/profile"}>
-                    Logout
-                  </Button>
+                  <>
+                    <div>
+                      <Button component={Link} to={"/profile"}>
+                        Logout
+                      </Button>
+                    </div>
+                    <div>
+                      <Button component={Link} to={"/profile"}>
+                        Edit Profile
+                      </Button>
+                    </div>
+                  </>
                 )}
-              </MenuItem>
-              <MenuItem onClick={handleClose}>
+              </MenuItem> */}
+              {/* <MenuItem onClick={handleClose}>
                 {isSignedIn && (
                   <Button component={Link} to={"/profile"}>
                     Edit Profile
                   </Button>
                 )}
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem onClick={handleClose}>
                 {!isSignedIn && (
                   <Button component={Link} to={"/login"}>
                     Login
                   </Button>
                 )}
-              </MenuItem>
-              <MenuItem onClick={handleClose}>
-                {isSignedIn && <Button onClick={SignOut}>Logout</Button>}
               </MenuItem>
             </Menu>
           </div>
