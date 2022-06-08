@@ -13,6 +13,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 type Book = {
   id: string;
@@ -106,7 +107,13 @@ const BooksDetail = () => {
                   </Button>
                 </>
               )}
-              <Link to="/book-index">戻る</Link>
+              <Button
+                component={Link}
+                to="/book-index"
+                className="detail-edit-btn"
+              >
+                <ArrowBackIcon />
+              </Button>
             </CardActions>
           </Card>
         </div>

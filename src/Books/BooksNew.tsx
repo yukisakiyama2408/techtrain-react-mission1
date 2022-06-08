@@ -6,7 +6,15 @@ import { Link } from "react-router-dom";
 import { Box } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
-import { Button } from "@material-ui/core";
+import CssBaseline from "@mui/material/CssBaseline";
+import Grid from "@mui/material/Grid";
+import Avatar from "@mui/material/Avatar";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const BookNew = () => {
   const navigate = useNavigate();
@@ -55,9 +63,175 @@ const BookNew = () => {
   };
 
   return (
-    <div className="new">
-      <div className="new-box">
-        <div className="new-section">
+    <div>
+      <div>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <MenuBookIcon fontSize="large" />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              レビューを登録する
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit(onSubmit)}
+              sx={{ mt: 1 }}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Controller
+                    name="title"
+                    control={control}
+                    rules={{
+                      required: "入力必須ですよ！",
+                      maxLength: {
+                        value: 30,
+                        message: "30文字以下で入力してくださいね！",
+                      },
+                    }}
+                    render={({
+                      field: { onBlur, onChange, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextField
+                        label="タイトル"
+                        required
+                        value={value}
+                        fullWidth
+                        variant="outlined"
+                        margin="normal"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        error={Boolean(error)}
+                        helperText={error?.message}
+                      />
+                    )}
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Controller
+                    name="url"
+                    control={control}
+                    rules={{
+                      required: "入力必須ですよ！",
+                    }}
+                    render={({
+                      field: { onBlur, onChange, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextField
+                        label="URL"
+                        required
+                        fullWidth
+                        value={value}
+                        variant="outlined"
+                        margin="normal"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        error={Boolean(error)}
+                        helperText={error?.message}
+                      />
+                    )}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Controller
+                    name="detail"
+                    control={control}
+                    rules={{
+                      required: "入力必須ですよ！",
+                      maxLength: {
+                        value: 30,
+                        message: "30文字以下で入力してくださいね！",
+                      },
+                    }}
+                    render={({
+                      field: { onBlur, onChange, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextField
+                        label="詳細"
+                        fullWidth
+                        required
+                        value={value}
+                        variant="outlined"
+                        margin="normal"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        error={Boolean(error)}
+                        helperText={error?.message}
+                      />
+                    )}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Controller
+                    name="review"
+                    control={control}
+                    rules={{
+                      required: "入力必須ですよ！",
+                      maxLength: {
+                        value: 30,
+                        message: "30文字以下で入力してくださいね！",
+                      },
+                    }}
+                    render={({
+                      field: { onBlur, onChange, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextField
+                        label="レビュー"
+                        fullWidth
+                        required
+                        value={value}
+                        variant="outlined"
+                        margin="normal"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        error={Boolean(error)}
+                        helperText={error?.message}
+                      />
+                    )}
+                  />
+                </Grid>
+              </Grid>
+
+              <Button
+                type="submit"
+                color="primary"
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                fullWidth
+                size="large"
+                className="login-btn"
+              >
+                投稿
+              </Button>
+              <Grid container>
+                <Grid item>
+                  <Button
+                    component={Link}
+                    to="/book-index"
+                    className="detail-edit-btn"
+                  >
+                    <KeyboardBackspaceIcon />
+                  </Button>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </Container>
+        {/* <div className="new-section">
           <h1>レビュー登録</h1>
           <Box
             component="form"
@@ -195,7 +369,7 @@ const BookNew = () => {
           <div className="login-signup">
             <Link to="/book-index">戻る</Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
