@@ -6,9 +6,18 @@ import { useForm } from "react-hook-form";
 import { Box } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
-import { Button } from "@material-ui/core";
+import CssBaseline from "@mui/material/CssBaseline";
+import Grid from "@mui/material/Grid";
+import Avatar from "@mui/material/Avatar";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 type Book = {
+  id: string;
   title: string;
   url: string;
   detail: string;
@@ -80,155 +89,175 @@ const BookEdit = () => {
 
   return (
     <div className="edit">
-      <div className="edit-box">
-        <div className="edit-section">
-          <h1>書籍レビュー編集</h1>
-          {book && (
-            <Box
-              component="form"
-              marginTop="50px"
-              width="100%"
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              onSubmit={handleSubmit(onSubmit)}
-            >
-              <div className="edit-title">
-                <Controller
-                  name="title"
-                  control={control}
-                  defaultValue={book.title}
-                  rules={{
-                    required: "入力必須ですよ！",
-                    maxLength: {
-                      value: 30,
-                      message: "30文字以下で入力してくださいね！",
-                    },
-                  }}
-                  render={({
-                    field: { onBlur, onChange, value },
-                    fieldState: { error },
-                  }) => (
-                    <TextField
-                      label="タイトル"
-                      required
-                      value={value}
-                      //defaultValue={book.title}
-                      variant="outlined"
-                      margin="dense"
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      error={Boolean(error)}
-                      helperText={error?.message}
+      <div>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <MenuBookIcon fontSize="large" />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              レビューを登録する
+            </Typography>
+            {book && (
+              <Box
+                component="form"
+                onSubmit={handleSubmit(onSubmit)}
+                sx={{ mt: 1 }}
+              >
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Controller
+                      name="title"
+                      control={control}
+                      defaultValue={book.title}
+                      rules={{
+                        required: "入力必須ですよ！",
+                        maxLength: {
+                          value: 30,
+                          message: "30文字以下で入力してくださいね！",
+                        },
+                      }}
+                      render={({
+                        field: { onBlur, onChange, value },
+                        fieldState: { error },
+                      }) => (
+                        <TextField
+                          label="タイトル"
+                          fullWidth
+                          required
+                          value={value}
+                          variant="outlined"
+                          margin="normal"
+                          onChange={onChange}
+                          onBlur={onBlur}
+                          error={Boolean(error)}
+                          helperText={error?.message}
+                        />
+                      )}
                     />
-                  )}
-                />
-              </div>
-              <div className="edit-url">
-                <Controller
-                  name="url"
-                  control={control}
-                  defaultValue={book.url}
-                  rules={{
-                    required: "入力必須ですよ！",
-                  }}
-                  render={({
-                    field: { onBlur, onChange, value },
-                    fieldState: { error },
-                  }) => (
-                    <TextField
-                      label="URL"
-                      required
-                      value={value}
-                      //defaultValue={book.url}
-                      variant="outlined"
-                      margin="dense"
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      error={Boolean(error)}
-                      helperText={error?.message}
+                  </Grid>
+
+                  <Grid item xs={12}>
+                    <Controller
+                      name="url"
+                      control={control}
+                      defaultValue={book.url}
+                      rules={{
+                        required: "入力必須ですよ！",
+                      }}
+                      render={({
+                        field: { onBlur, onChange, value },
+                        fieldState: { error },
+                      }) => (
+                        <TextField
+                          label="URL"
+                          required
+                          fullWidth
+                          value={value}
+                          variant="outlined"
+                          margin="normal"
+                          onChange={onChange}
+                          onBlur={onBlur}
+                          error={Boolean(error)}
+                          helperText={error?.message}
+                        />
+                      )}
                     />
-                  )}
-                />
-              </div>
-              <div className="edit-detail">
-                <Controller
-                  name="detail"
-                  defaultValue={book.detail}
-                  control={control}
-                  rules={{
-                    required: "入力必須ですよ！",
-                    maxLength: {
-                      value: 30,
-                      message: "30文字以下で入力してくださいね！",
-                    },
-                  }}
-                  render={({
-                    field: { onBlur, onChange, value },
-                    fieldState: { error },
-                  }) => (
-                    <TextField
-                      label="詳細"
-                      required
-                      value={value}
-                      variant="outlined"
-                      margin="dense"
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      error={Boolean(error)}
-                      helperText={error?.message}
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Controller
+                      name="detail"
+                      defaultValue={book.detail}
+                      control={control}
+                      rules={{
+                        required: "入力必須ですよ！",
+                        maxLength: {
+                          value: 30,
+                          message: "30文字以下で入力してくださいね！",
+                        },
+                      }}
+                      render={({
+                        field: { onBlur, onChange, value },
+                        fieldState: { error },
+                      }) => (
+                        <TextField
+                          label="詳細"
+                          required
+                          fullWidth
+                          value={value}
+                          variant="outlined"
+                          margin="normal"
+                          onChange={onChange}
+                          onBlur={onBlur}
+                          error={Boolean(error)}
+                          helperText={error?.message}
+                        />
+                      )}
                     />
-                  )}
-                />
-              </div>
-              <div className="edit-review">
-                <Controller
-                  name="review"
-                  control={control}
-                  defaultValue={book.review}
-                  rules={{
-                    required: "入力必須ですよ！",
-                    maxLength: {
-                      value: 30,
-                      message: "30文字以下で入力してくださいね！",
-                    },
-                  }}
-                  render={({
-                    field: { onBlur, onChange, value },
-                    fieldState: { error },
-                  }) => (
-                    <TextField
-                      label="レビュー"
-                      required
-                      value={value}
-                      variant="outlined"
-                      //defaultValue={book.review}
-                      margin="dense"
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      error={Boolean(error)}
-                      helperText={error?.message}
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Controller
+                      name="review"
+                      control={control}
+                      defaultValue={book.review}
+                      rules={{
+                        required: "入力必須ですよ！",
+                        maxLength: {
+                          value: 30,
+                          message: "30文字以下で入力してくださいね！",
+                        },
+                      }}
+                      render={({
+                        field: { onBlur, onChange, value },
+                        fieldState: { error },
+                      }) => (
+                        <TextField
+                          label="レビュー"
+                          required
+                          fullWidth
+                          value={value}
+                          variant="outlined"
+                          margin="normal"
+                          onChange={onChange}
+                          onBlur={onBlur}
+                          error={Boolean(error)}
+                          helperText={error?.message}
+                        />
+                      )}
                     />
-                  )}
-                />
-              </div>
-              <div className="edit-btn-section">
+                  </Grid>
+                </Grid>
+
                 <Button
-                  variant="contained"
                   type="submit"
                   color="primary"
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  fullWidth
                   size="large"
-                  className="edit-btn"
+                  className="login-btn"
                 >
-                  投稿する
+                  変更
                 </Button>
-              </div>
-            </Box>
-          )}
-          <div className="login-signup">
-            <Link to="/book-index">戻る</Link>
-          </div>
-        </div>
+                <Grid container>
+                  <Grid item>
+                    <Button component={Link} to={`/detail/${book.id}`}>
+                      <KeyboardBackspaceIcon />
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Box>
+            )}
+          </Box>
+        </Container>
       </div>
     </div>
   );
