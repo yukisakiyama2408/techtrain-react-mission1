@@ -37,59 +37,6 @@
   }
 }
 
-.home {
-  display: flex;
-  justify-content: center;
-}
-
-.home-box {
-  height: 300px;
-  width: 250px;
-  padding: 0.5em 1em;
-  margin: 100px 0;
-  border: solid 2px #000000;
-}
-
-.signin-box {
-  text-align: center;
-}
-
-.home-index-box {
-  margin: 25px 0px;
-}
-
-.home-index-btn {
-  width: 200px;
-}
-
-.home-new-box {
-  margin: 25px 0px;
-}
-
-.home-new-btn {
-  width: 200px;
-}
-
-.signout-box {
-  text-align: center;
-}
-
-.home-signup-box {
-  margin: 25px 0px;
-}
-
-.home-signup-btn {
-  width: 200px;
-}
-
-.home-login-box {
-  margin: 25px 0px;
-}
-
-.home-login-btn {
-  width: 200px;
-}
-
 .signup {
   display: flex;
   justify-content: center;
@@ -101,22 +48,6 @@
   padding: 0.5em 1em;
   margin: 2em 0;
   border: solid 2px #000000;
-}
-
-.signup-section {
-  text-align: center;
-}
-
-.signup-name {
-  margin: 5px;
-}
-
-.signup-email {
-  margin: 5px;
-}
-
-.signup-password {
-  margin: 5px;
 }
 
 .signup-btn-section {
@@ -198,6 +129,20 @@
   float: right;
 }
 
+.add-btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.add-btn {
+  position: absolute;
+  z-index: 1;
+  top: -30;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
 .move-profile {
   float: right;
   font-size: large;
@@ -214,6 +159,10 @@
   display: flex;
   justify-content: center;
 } */
+
+.index-body {
+  padding-bottom: 50px;
+}
 
 .index-box {
   margin-top: 20px;

@@ -35,6 +35,7 @@ const DeleteReviewAlert = () => {
         data: {},
       })
       .then((res) => {
+        deleteAlerts();
         console.log(res.data);
         navigate("/book-index");
       });

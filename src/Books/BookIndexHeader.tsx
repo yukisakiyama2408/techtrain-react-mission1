@@ -86,16 +86,14 @@ const MenuAppBar = () => {
                   {" "}
                   <MenuItem onClick={handleClose}>
                     {" "}
-                    <Button component={Link} to={"/profile"}>
-                      Logout
-                    </Button>
+                    <Button onClick={SignOut}>Logout</Button>
                   </MenuItem>
-                  <MenuItem onClick={handleClose}>
+                  {/* <MenuItem onClick={handleClose}>
                     {" "}
                     <Button component={Link} to={"/profile"}>
                       Edit Profile
                     </Button>
-                  </MenuItem>
+                  </MenuItem> */}
                 </>
               )}
               {/* <MenuItem onClick={handleClose}>

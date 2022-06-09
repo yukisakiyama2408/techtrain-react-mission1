@@ -61,7 +61,7 @@ const BookIndex = () => {
       <>
         <MenuAppBar />
       </>
-      <div>
+      <div className="index-body">
         <div className="index-box">
           {books.map((data) => {
             return (

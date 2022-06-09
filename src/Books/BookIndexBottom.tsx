@@ -10,35 +10,35 @@ import IconButton from "@mui/material/IconButton";
 import Fab from "@mui/material/Fab";
 import MenuIcon from "@mui/icons-material/Menu";
 import AddIcon from "@mui/icons-material/Add";
-import SearchIcon from "@mui/icons-material/Search";
-import MoreIcon from "@mui/icons-material/MoreVert";
-
-const StyledFab = styled(Fab)({
-  position: "absolute",
-  zIndex: 1,
-  top: -30,
-  left: 0,
-  right: 0,
-  margin: "0 auto",
-});
+import { Button } from "@material-ui/core";
 
 const BottomAppBar = () => {
+  const StyledFab = styled(Fab)({
+    position: "absolute",
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+  });
+
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <Paper square sx={{ pb: "50px" }}>
-        <Typography
-          variant="h5"
-          gutterBottom
-          component="div"
-          sx={{ p: 2, pb: 0 }}
-        >
-          Inbox
-        </Typography>
-      </Paper> */}
       <AppBar position="fixed" color="primary" sx={{ top: "auto", bottom: 0 }}>
         <Toolbar>
-          <StyledFab color="inherit" aria-label="add">
+          <StyledFab
+            color="inherit"
+            aria-label="add"
+            sx={{
+              position: "absolute",
+              zIndex: 1,
+              top: -30,
+              left: 0,
+              right: 0,
+              margin: "0 auto",
+            }}
+          >
             <a href="/new">
               <AddIcon />
             </a>
