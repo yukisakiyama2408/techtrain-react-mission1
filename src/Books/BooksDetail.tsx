@@ -7,6 +7,7 @@ import { MenuAppBar } from "./BookIndexHeader";
 import { Button } from "@material-ui/core";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import { DeleteReviewAlert } from "./BookDelete";
 import Box from "@mui/material/Box";
 import Container from "@material-ui/core/Container";
 import Card from "@mui/material/Card";
@@ -48,27 +49,6 @@ const BooksDetail = () => {
       });
   }, [id]);
 
-  const DeleteReview = () => {
-    const confirm = window.confirm("本当にレビュー削除しますか");
-    if (confirm) {
-      return axios
-        .delete(bookDetailUrl, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${api_token}`,
-          },
-          data: {},
-        })
-        .then((res) => {
-          alert("削除しました!");
-          console.log(res.data);
-          navigate("/book-index");
-        });
-    } else {
-      return navigate("/book-index");
-    }
-  };
-
   return (
     <>
       <MenuAppBar />
@@ -102,9 +82,7 @@ const BooksDetail = () => {
                   >
                     <EditIcon />
                   </Button>
-                  <Button onClick={DeleteReview} className="delete-btn">
-                    <DeleteIcon />
-                  </Button>
+                  <DeleteReviewAlert />
                 </>
               )}
               <Button
