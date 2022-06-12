@@ -10,6 +10,7 @@ import { CardActionArea } from "@mui/material";
 import { Table, TablePagination } from "@material-ui/core";
 import { MenuAppBar } from "./BookIndexHeader";
 import { BottomAppBar } from "./BookIndexBottom";
+import Pagination from "@mui/material";
 
 const BookIndex = () => {
   const navigate = useNavigate();
@@ -63,9 +64,9 @@ const BookIndex = () => {
       </>
       <div className="index-body">
         <div className="index-box">
-          {books.map((data) => {
-            return (
-              <Container maxWidth="sm">
+          <Container maxWidth="sm">
+            {books.map((data) => {
+              return (
                 <Card className="index-card">
                   <CardActionArea component={Link} to={`/detail/${data.id}`}>
                     <CardContent>
@@ -85,19 +86,17 @@ const BookIndex = () => {
                     </CardContent>
                   </CardActionArea>
                 </Card>
-              </Container>
-            );
-          })}
+              );
+            })}
+            <TablePagination
+              count={100}
+              page={page}
+              onPageChange={(e, newPage) => setPage(newPage)}
+              rowsPerPageOptions={[]}
+              rowsPerPage={perPage}
+            />
+          </Container>
         </div>
-        <Table className="book-table">
-          <TablePagination
-            count={100}
-            page={page}
-            onPageChange={(e, newPage) => setPage(newPage)}
-            rowsPerPageOptions={[]}
-            rowsPerPage={perPage}
-          />
-        </Table>
       </div>
       <div>
         <BottomAppBar />

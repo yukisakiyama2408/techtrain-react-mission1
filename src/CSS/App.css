@@ -186,18 +186,10 @@
   justify-content: center;
 } */
 
-.index-box {
-  margin-top: 20px;
-}
-
 .index-card {
   width: 80%;
   height: auto;
   margin: 5px;
-}
-
-.book-table {
-  margin: 20px;
 }
 
 .profile {
@@ -243,7 +235,7 @@
 }
 
 .index-body {
-  padding-bottom: 50px;
+  padding-bottom: 80px;
 }
 
 .new-title {
