@@ -149,6 +149,15 @@
   text-align: center;
 }
 
+.add-btn {
+  position: absolute;
+  z-index: 1px;
+  top: -30;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
 .user-name {
   float: right;
 }
@@ -160,7 +169,7 @@
 }
 
 .index-body {
-  padding-bottom: 80px;
+  padding-bottom: 100px;
 }
 
 .detail-card-box {

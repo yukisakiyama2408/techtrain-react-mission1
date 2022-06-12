@@ -23,29 +23,18 @@ const BottomAppBar = () => {
   });
 
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
       <AppBar position="fixed" color="primary" sx={{ top: "auto", bottom: 0 }}>
-        <Toolbar>
-          <StyledFab
-            color="inherit"
-            aria-label="add"
-            sx={{
-              position: "absolute",
-              zIndex: 1,
-              top: -30,
-              left: 0,
-              right: 0,
-              margin: "0 auto",
-            }}
-          >
-            <a href="/new">
+        <Toolbar className="add-btn">
+          <StyledFab color="secondary" aria-label="add">
+            <Button component={Link} to={"/new"}>
               <AddIcon />
-            </a>
+            </Button>
           </StyledFab>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </>
   );
 };
 

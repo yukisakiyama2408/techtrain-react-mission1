@@ -83,6 +83,7 @@ const MenuAppBar = () => {
             >
               {isSignedIn && (
                 <>
+                  <MenuItem>LOGOUT</MenuItem>
                   <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
                   <MenuItem component={Link} to={"/profile"}>
                     Edit Profile
