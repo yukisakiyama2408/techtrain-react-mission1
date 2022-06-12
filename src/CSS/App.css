@@ -132,37 +132,8 @@
   padding-top: 20px;
 }
 
-.login-box {
-  height: auto;
-  width: 250px;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  border: solid 2px #000000;
-}
-
 .login-section {
-  margin-top: 50px;
-}
-
-.login-email {
-  margin: 5px;
-}
-
-.login-password {
-  margin: 5px;
-}
-
-.login-btn-section {
-  margin-top: 5px;
-}
-
-.login-btn {
-  width: 200px;
-}
-
-.login {
-  display: flex;
-  justify-content: center;
+  margin-top: 50ox;
 }
 
 .login-signup {
