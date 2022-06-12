@@ -13,6 +13,9 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import { Link } from "react-router-dom";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -135,9 +138,21 @@ const Profile = () => {
                 sx={{ mt: 3, mb: 2 }}
                 fullWidth
                 size="large"
+                className="login-btn"
               >
                 更新する
               </Button>
+              <Grid container>
+                <Grid item>
+                  <Button
+                    component={Link}
+                    to="/book-index"
+                    className="detail-edit-btn"
+                  >
+                    <KeyboardBackspaceIcon />
+                  </Button>
+                </Grid>
+              </Grid>
             </Box>
           </Box>
         </Container>

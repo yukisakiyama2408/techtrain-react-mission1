@@ -64,7 +64,7 @@ const MenuAppBar = () => {
               onClick={handleMenu}
               color="inherit"
             >
-              <MoreIcon />
+              <AccountCircle />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -83,42 +83,12 @@ const MenuAppBar = () => {
             >
               {isSignedIn && (
                 <>
-                  {" "}
-                  <MenuItem onClick={handleClose}>
-                    {" "}
-                    <Button onClick={SignOut}>Logout</Button>
+                  <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
+                  <MenuItem component={Link} to={"/profile"}>
+                    Edit Profile
                   </MenuItem>
-                  {/* <MenuItem onClick={handleClose}>
-                    {" "}
-                    <Button component={Link} to={"/profile"}>
-                      Edit Profile
-                    </Button>
-                  </MenuItem> */}
                 </>
               )}
-              {/* <MenuItem onClick={handleClose}>
-                {isSignedIn && (
-                  <>
-                    <div>
-                      <Button component={Link} to={"/profile"}>
-                        Logout
-                      </Button>
-                    </div>
-                    <div>
-                      <Button component={Link} to={"/profile"}>
-                        Edit Profile
-                      </Button>
-                    </div>
-                  </>
-                )}
-              </MenuItem> */}
-              {/* <MenuItem onClick={handleClose}>
-                {isSignedIn && (
-                  <Button component={Link} to={"/profile"}>
-                    Edit Profile
-                  </Button>
-                )}
-              </MenuItem> */}
               <MenuItem onClick={handleClose}>
                 {!isSignedIn && (
                   <Button component={Link} to={"/login"}>

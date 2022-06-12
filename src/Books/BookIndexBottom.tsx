@@ -43,7 +43,6 @@ const BottomAppBar = () => {
               <AddIcon />
             </a>
           </StyledFab>
-          <Box sx={{ flexGrow: 1 }} />
         </Toolbar>
       </AppBar>
     </React.Fragment>
