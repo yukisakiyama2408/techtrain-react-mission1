@@ -156,57 +156,6 @@ const Profile = () => {
             </Box>
           </Box>
         </Container>
-        // <Box
-        //   component="form"
-        //   marginTop="50px"
-        //   width="100%"
-        //   display="flex"
-        //   flexDirection="column"
-        //   justifyContent="center"
-        //   onSubmit={handleSubmit(onSubmit)}
-        // >
-        //   <div className="profile-name">
-        //     <Controller
-        //       name="name"
-        //       control={control}
-        //       defaultValue={userName}
-        //       rules={{
-        //         required: "入力必須ですよ！",
-        //         maxLength: {
-        //           value: 30,
-        //           message: "30文字以下で入力してくださいね！",
-        //         },
-        //       }}
-        //       render={({
-        //         field: { onBlur, onChange, value },
-        //         fieldState: { error },
-        //       }) => (
-        //         <TextField
-        //           label="お名前"
-        //           required
-        //           value={value}
-        //           variant="outlined"
-        //           margin="dense"
-        //           onChange={onChange}
-        //           onBlur={onBlur}
-        //           error={Boolean(error)}
-        //           helperText={error?.message}
-        //         />
-        //       )}
-        //     />
-        //   </div>
-        //   <div className="profile-btn-section">
-        //     <Button
-        //       variant="contained"
-        //       type="submit"
-        //       color="primary"
-        //       size="large"
-        //       className="profile-btn"
-        //     >
-        //       更新する
-        //     </Button>
-        //   </div>
-        // </Box>
       )}
     </div>
   );

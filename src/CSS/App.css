@@ -141,22 +141,6 @@
   padding-top: 20px;
 }
 
-.review-box {
-  width: 100%;
-}
-
-.book-review {
-  padding: 50px;
-}
-
-.review-title {
-  text-align: center;
-}
-
-.review-url {
-  width: 100%;
-}
-
 .index-header {
   background-color: #c0c0c0;
 }
@@ -169,138 +153,14 @@
   float: right;
 }
 
-.move-profile {
-  float: right;
-  font-size: large;
-  margin-right: 10px;
-}
-
-.logout-btn {
-  float: right;
-  font-size: large;
-  margin-right: 10px;
-}
-
-/* .card-box {
-  display: flex;
-  justify-content: center;
-} */
-
 .index-card {
   width: 80%;
   height: auto;
   margin: 5px;
 }
 
-.profile {
-  display: flex;
-  justify-content: center;
-}
-
-.profile-box {
-  height: 250px;
-  width: 300px;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  border: solid 2px #000000;
-}
-
-.profile-section {
-  text-align: center;
-}
-
-.profile-btn-section {
-  margin-top: 30px;
-}
-
-.profile-btn {
-  width: 200px;
-}
-
-.new {
-  display: flex;
-  justify-content: center;
-}
-
-.new-box {
-  height: auto;
-  width: 300px;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  border: solid 2px #000000;
-}
-
-.new-section {
-  text-align: center;
-}
-
 .index-body {
   padding-bottom: 80px;
-}
-
-.new-title {
-  margin: 5px;
-}
-
-.new-url {
-  margin: 5px;
-}
-
-.new-detail {
-  margin: 5px;
-}
-
-.new-review {
-  margin: 5px;
-}
-
-.new-btn-section {
-  margin-top: 5px;
-}
-
-.new-btn {
-  width: 200px;
-}
-
-.edit {
-  display: flex;
-  justify-content: center;
-}
-
-.edit-box {
-  height: auto;
-  width: 300px;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  border: solid 2px #000000;
-}
-
-.edit-section {
-  text-align: center;
-}
-
-.edit-title {
-  margin: 5px;
-}
-
-.edit-url {
-  margin: 5px;
-}
-
-.edit-detail {
-  margin: 5px;
-}
-
-.edit-review {
-  margin: 5px;
-}
-
-.edit-btn-section {
-  margin-top: 5px;
-}
-
-.edit-btn {
-  width: 200px;
 }
 
 .detail-card-box {

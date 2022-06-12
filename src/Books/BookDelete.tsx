@@ -61,10 +61,10 @@ const DeleteReviewAlert = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>削除しない</Button>
           <Button onClick={handleDelete} autoFocus>
             削除する
           </Button>
+          <Button onClick={handleClose}>削除しない</Button>
         </DialogActions>
       </Dialog>
     </div>
