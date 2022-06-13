@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Container } from "@material-ui/core";
 import { CardActionArea } from "@mui/material";
-import { Table, TablePagination } from "@material-ui/core";
+import { TablePagination } from "@material-ui/core";
 import { MenuAppBar } from "./BookIndexHeader";
 import { BottomAppBar } from "./BookIndexBottom";
-import Pagination from "@mui/material";
 
 const BookIndex = () => {
-  const navigate = useNavigate();
   const { accessToken } = useAuth();
   const api_token = accessToken;
   const urlBooksApi =

@@ -103,7 +103,7 @@ const BookEdit = () => {
               <MenuBookIcon fontSize="large" />
             </Avatar>
             <Typography component="h1" variant="h5">
-              レビューを登録する
+              レビューを編集する
             </Typography>
             {book && (
               <Box
