@@ -62,7 +62,7 @@ const BooksDetail = () => {
                 gutterBottom
               ></Typography>
               <Typography variant="h5" component="div">
-                <a className="review-url" href={book.url}>
+                <a className="review-url" href={book.url} target="_blank">
                   {book.title}
                 </a>
               </Typography>
@@ -72,9 +72,15 @@ const BooksDetail = () => {
               <Typography variant="body2">{book.review}</Typography>
             </CardContent>
             <CardActions>
+              <Button
+                component={Link}
+                to="/book-index"
+                className="detail-edit-btn"
+              >
+                <ArrowBackIcon />
+              </Button>
               {book.isMine && (
                 <>
-                  {" "}
                   <Button
                     component={Link}
                     to={`/edit/${book.id}`}
@@ -85,13 +91,6 @@ const BooksDetail = () => {
                   <DeleteReviewAlert />
                 </>
               )}
-              <Button
-                component={Link}
-                to="/book-index"
-                className="detail-edit-btn"
-              >
-                <ArrowBackIcon />
-              </Button>
             </CardActions>
           </Card>
         </div>

@@ -43,7 +43,7 @@ const DeleteReviewAlert = () => {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button onClick={handleClickOpen}>
         <DeleteIcon />
       </Button>
       <Dialog
