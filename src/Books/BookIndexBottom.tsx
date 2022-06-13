@@ -14,7 +14,6 @@ import { Button } from "@material-ui/core";
 
 const BottomAppBar = () => {
   const StyledFab = styled(Fab)({
-    position: "absolute",
     zIndex: 1,
     top: -30,
     left: 0,

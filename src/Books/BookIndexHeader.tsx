@@ -1,4 +1,7 @@
 import * as React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useAuth } from "../Contexts/AuthContext";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,7 +9,6 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { Link, useNavigate } from "react-router-dom";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { useAuth } from "../Contexts/AuthContext";
 import { Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -14,8 +16,27 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 
 const MenuAppBar = () => {
   const { accessToken } = useAuth();
+  const api_token = accessToken;
   const isSignedIn = accessToken != null;
   const navigate = useNavigate();
+  const [userName, setUserName] = useState("");
+  const urlUsersApi =
+    "https://api-for-missions-and-railways.herokuapp.com/users";
+
+  useEffect(() => {
+    axios
+      .get(urlUsersApi, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${api_token}`,
+        },
+        data: {},
+      })
+      .then((res) => {
+        setUserName(res.data.name);
+      });
+  }, []);
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -83,7 +104,7 @@ const MenuAppBar = () => {
             >
               {isSignedIn && (
                 <>
-                  <MenuItem>LOGOUT</MenuItem>
+                  <MenuItem>{userName}さん</MenuItem>
                   <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
                   <MenuItem component={Link} to={"/profile"}>
                     Edit Profile
