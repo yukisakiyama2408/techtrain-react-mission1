@@ -43,7 +43,7 @@ const Login = () => {
       .then(function (response) {
         signin(response.data.token);
         console.log(response);
-        navigate("/book-index");
+        navigate("/");
       })
       .catch(function (error) {
         console.log(error);

@@ -105,10 +105,10 @@ const MenuAppBar = () => {
               {isSignedIn && (
                 <>
                   <MenuItem>{userName}さん</MenuItem>
-                  <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
                   <MenuItem component={Link} to={"/profile"}>
-                    Edit Profile
+                    プロフィールを編集
                   </MenuItem>
+                  <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
                 </>
               )}
               <MenuItem onClick={handleClose}>

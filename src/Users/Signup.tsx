@@ -45,7 +45,7 @@ const Signup = () => {
       })
       .then(function (response) {
         console.log(response);
-        navigate("/book-index");
+        navigate("/");
       })
       .catch(function (error) {
         console.log(error);
