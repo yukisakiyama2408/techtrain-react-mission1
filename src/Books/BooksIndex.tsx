@@ -35,8 +35,6 @@ const BookIndex = () => {
       });
   }, [page]);
 
-  const [user, setUser] = useState("");
-
   const userNameApi =
     "https://api-for-missions-and-railways.herokuapp.com/users";
 
@@ -49,12 +47,8 @@ const BookIndex = () => {
         },
         data: {},
       })
-      .then((res) => {
-        setUser(res.data.name);
-      });
+      .then((res) => {});
   }, []);
-
-  console.log(books);
 
   return (
     <div>
@@ -73,13 +67,23 @@ const BookIndex = () => {
                         variant="body2"
                         color="text.secondary"
                         gutterBottom
+                        key={data.id}
                       >
                         {data.reviewer}さん
                       </Typography>
-                      <Typography gutterBottom variant="h6" component="div">
+                      <Typography
+                        gutterBottom
+                        variant="h6"
+                        component="div"
+                        key={data.id}
+                      >
                         {data.title}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        key={data.id}
+                      >
                         {data.review}
                       </Typography>
                     </CardContent>
@@ -87,9 +91,8 @@ const BookIndex = () => {
                 </Card>
               );
             })}
-            <Table>
-              {" "}
-              <TableContainer>
+            <TableContainer>
+              <Table>
                 <TablePagination
                   count={100}
                   page={page}
@@ -97,8 +100,8 @@ const BookIndex = () => {
                   rowsPerPageOptions={[]}
                   rowsPerPage={perPage}
                 />
-              </TableContainer>
-            </Table>
+              </Table>
+            </TableContainer>
           </Container>
         </div>
       </div>

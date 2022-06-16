@@ -22,7 +22,7 @@ const BottomAppBar = () => {
   });
 
   return (
-    <>
+    <React.Fragment>
       <CssBaseline />
       <AppBar position="fixed" color="primary" sx={{ top: "auto", bottom: 0 }}>
         <Toolbar className="add-btn">
@@ -33,7 +33,7 @@ const BottomAppBar = () => {
           </StyledFab>
         </Toolbar>
       </AppBar>
-    </>
+    </React.Fragment>
   );
 };
 
