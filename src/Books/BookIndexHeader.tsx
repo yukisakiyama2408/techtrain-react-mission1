@@ -1,5 +1,6 @@
 import * as React from "react";
 import axios from "axios";
+import { MouseEvent } from "react";
 import { useState, useEffect } from "react";
 import { useAuth } from "../Contexts/AuthContext";
 import AppBar from "@mui/material/AppBar";
@@ -12,7 +13,6 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MoreIcon from "@mui/icons-material/MoreVert";
 
 const MenuAppBar = () => {
   const { accessToken } = useAuth();
@@ -37,9 +37,9 @@ const MenuAppBar = () => {
       });
   }, []);
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -74,7 +74,7 @@ const MenuAppBar = () => {
               textDecoration: "none",
             }}
           >
-            Book Reviews
+            みんなの本棚
           </Typography>
           <div>
             <IconButton
@@ -87,22 +87,22 @@ const MenuAppBar = () => {
             >
               <AccountCircle />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              {isSignedIn && (
+            {isSignedIn && (
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
                 <>
                   <MenuItem>{userName}さん</MenuItem>
                   <MenuItem component={Link} to={"/profile"}>
@@ -110,15 +110,15 @@ const MenuAppBar = () => {
                   </MenuItem>
                   <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
                 </>
-              )}
-              <MenuItem onClick={handleClose}>
                 {!isSignedIn && (
-                  <Button component={Link} to={"/login"}>
-                    Login
-                  </Button>
+                  <MenuItem onClick={handleClose}>
+                    <Button component={Link} to={"/login"}>
+                      Login
+                    </Button>
+                  </MenuItem>
                 )}
-              </MenuItem>
-            </Menu>
+              </Menu>
+            )}
           </div>
         </Toolbar>
       </AppBar>

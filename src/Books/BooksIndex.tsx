@@ -7,7 +7,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Container } from "@material-ui/core";
 import { CardActionArea } from "@mui/material";
-import { TablePagination } from "@material-ui/core";
+import { Table, TablePagination } from "@material-ui/core";
+import TableContainer from "@mui/material/TableContainer";
 import { MenuAppBar } from "./BookIndexHeader";
 import { BottomAppBar } from "./BookIndexBottom";
 
@@ -86,13 +87,18 @@ const BookIndex = () => {
                 </Card>
               );
             })}
-            <TablePagination
-              count={100}
-              page={page}
-              onPageChange={(e, newPage) => setPage(newPage)}
-              rowsPerPageOptions={[]}
-              rowsPerPage={perPage}
-            />
+            <Table>
+              {" "}
+              <TableContainer>
+                <TablePagination
+                  count={100}
+                  page={page}
+                  onPageChange={(e, newPage) => setPage(newPage)}
+                  rowsPerPageOptions={[]}
+                  rowsPerPage={perPage}
+                />
+              </TableContainer>
+            </Table>
           </Container>
         </div>
       </div>
