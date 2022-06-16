@@ -62,28 +62,18 @@ const BookIndex = () => {
               return (
                 <Card className="index-card">
                   <CardActionArea component={Link} to={`/detail/${data.id}`}>
-                    <CardContent>
+                    <CardContent key={data.id}>
                       <Typography
                         variant="body2"
                         color="text.secondary"
                         gutterBottom
-                        key={data.id}
                       >
                         {data.reviewer}さん
                       </Typography>
-                      <Typography
-                        gutterBottom
-                        variant="h6"
-                        component="div"
-                        key={data.id}
-                      >
+                      <Typography gutterBottom variant="h6" component="div">
                         {data.title}
                       </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        key={data.id}
-                      >
+                      <Typography variant="body2" color="text.secondary">
                         {data.review}
                       </Typography>
                     </CardContent>
