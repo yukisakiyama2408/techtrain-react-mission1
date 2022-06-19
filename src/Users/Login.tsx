@@ -15,7 +15,6 @@ import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
 import Button from "@mui/material/Button";
 import { Alert } from "@mui/material";
-import AlertTitle from "@mui/material";
 
 const theme = createTheme();
 
@@ -47,7 +46,6 @@ const Login = () => {
       })
       .catch(function (error) {
         console.log(error);
-        console.log(error.response.status);
         if (error.response.status === 403) {
           setAlert(error);
         }
