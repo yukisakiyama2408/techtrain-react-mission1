@@ -13,6 +13,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import { Container } from "@material-ui/core";
 
 const MenuAppBar = () => {
   const { accessToken } = useAuth();
@@ -103,11 +104,18 @@ const MenuAppBar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem>{userName}さん</MenuItem>
-                <MenuItem component={Link} to={"/profile"}>
-                  プロフィールを編集
-                </MenuItem>
-                <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
+                <Container>
+                  <MenuItem>{userName}さん</MenuItem>
+                </Container>
+                <Container>
+                  <MenuItem component={Link} to={"/profile"}>
+                    プロフィールを編集
+                  </MenuItem>
+                </Container>
+                <Container>
+                  <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
+                </Container>
+
                 {!isSignedIn && (
                   <MenuItem onClick={handleClose}>
                     <Button component={Link} to={"/login"}>

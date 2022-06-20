@@ -60,25 +60,27 @@ const BookIndex = () => {
           <Container maxWidth="sm">
             {books.map((data) => {
               return (
-                <Card className="index-card">
-                  <CardActionArea component={Link} to={`/detail/${data.id}`}>
-                    <CardContent key={data.id}>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        {data.reviewer}さん
-                      </Typography>
-                      <Typography gutterBottom variant="h6" component="div">
-                        {data.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {data.review}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
+                <CardActionArea component={Link} to={`/detail/${data.id}`}>
+                  <Card className="index-card">
+                    <Container>
+                      <CardContent key={data.id}>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          gutterBottom
+                        >
+                          {data.reviewer}さん
+                        </Typography>
+                        <Typography gutterBottom variant="h6" component="div">
+                          {data.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {data.review}
+                        </Typography>
+                      </CardContent>
+                    </Container>
+                  </Card>
+                </CardActionArea>
               );
             })}
             <TableContainer>

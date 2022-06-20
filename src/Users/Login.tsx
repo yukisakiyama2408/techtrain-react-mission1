@@ -20,12 +20,7 @@ const theme = createTheme();
 
 const Login = () => {
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm({
+  const { handleSubmit, control } = useForm({
     mode: "onBlur",
     criteriaMode: "all",
     shouldFocusError: false,
