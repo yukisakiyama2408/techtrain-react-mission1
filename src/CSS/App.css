@@ -37,35 +37,6 @@
   }
 }
 
-.home {
-  display: flex;
-  justify-content: center;
-}
-
-.home-box {
-  height: 300px;
-  width: 250px;
-  padding: 0.5em 1em;
-  margin: 100px 0;
-  border: solid 2px #000000;
-}
-
-.signin-box {
-  text-align: center;
-}
-
-.signout-box {
-  text-align: center;
-}
-
-.home-signup-box {
-  margin: 25px 0px;
-}
-
-.home-signup-btn {
-  width: 200px;
-}
-
 .signup {
   display: flex;
   justify-content: center;
