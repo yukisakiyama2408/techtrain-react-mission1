@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./CSS/App.css";
 import { Signup } from "./Users/Signup";
 import { Login } from "./Users/Login";
@@ -16,11 +15,6 @@ const HomeRoutes = () => {
   const { accessToken } = useAuth();
   const isSignedIn = accessToken != null;
 
-  // if (isSignedIn) {
-  //   return <Route path="/" element={<Home />} />;
-  // } else {
-  //   return <Route path="/" element={<Login />} />;
-  // }
   return (
     <>
       <Routes>
