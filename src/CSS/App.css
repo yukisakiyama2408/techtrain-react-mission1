@@ -42,50 +42,12 @@
   justify-content: center;
 }
 
-.signup-box {
-  height: auto;
-  width: 250px;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  border: solid 2px #000000;
-}
-
 .signup-section {
   text-align: center;
 }
 
-.signup-name {
-  margin: 5px;
-}
-
-.signup-email {
-  margin: 5px;
-}
-
-.signup-password {
-  margin: 5px;
-}
-
-.signup-btn-section {
-  margin-top: 5px;
-}
-
-.signup-btn {
-  width: 80%;
-}
-
-.singup-login {
-  font-size: 15px;
-  padding-top: 20px;
-}
-
 .login-section {
   margin-top: 50ox;
-}
-
-.login-signup {
-  font-size: 15px;
-  padding-top: 20px;
 }
 
 .index-header {
