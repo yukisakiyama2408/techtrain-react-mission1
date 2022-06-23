@@ -69,7 +69,7 @@ const BooksDetail = () => {
               </Typography>
               <div>
                 <div className="detail-section">
-                  <Typography variant="h6">この本について：</Typography>
+                  {/* <Typography variant="h6">この本について：</Typography> */}
                   <Typography variant="body1">{book.detail}</Typography>
                 </div>
                 <div className="review-section">

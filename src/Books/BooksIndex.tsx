@@ -64,15 +64,15 @@ const BookIndex = () => {
                   <Card className="index-card">
                     <Container>
                       <CardContent key={data.id}>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {data.title}
+                        </Typography>
                         <Typography
-                          variant="body2"
+                          variant="body1"
                           color="text.secondary"
                           gutterBottom
                         >
-                          {data.reviewer}さん
-                        </Typography>
-                        <Typography gutterBottom variant="h6" component="div">
-                          {data.title}
+                          {data.reviewer}さんのコメント：
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                           {data.review}
