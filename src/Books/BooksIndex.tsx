@@ -83,17 +83,19 @@ const BookIndex = () => {
                 </CardActionArea>
               );
             })}
-            <TableContainer>
-              <Table>
-                <TablePagination
-                  count={100}
-                  page={page}
-                  onPageChange={(e, newPage) => setPage(newPage)}
-                  rowsPerPageOptions={[]}
-                  rowsPerPage={perPage}
-                />
-              </Table>
-            </TableContainer>
+            <div className="table-box">
+              <TableContainer>
+                <Table className="table-footer">
+                  <TablePagination
+                    count={100}
+                    page={page}
+                    onPageChange={(e, newPage) => setPage(newPage)}
+                    rowsPerPageOptions={[]}
+                    rowsPerPage={perPage}
+                  />
+                </Table>
+              </TableContainer>
+            </div>
           </Container>
         </div>
       </div>
