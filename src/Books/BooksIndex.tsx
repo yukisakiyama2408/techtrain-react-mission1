@@ -85,13 +85,14 @@ const BookIndex = () => {
             })}
             <div className="table-box">
               <TableContainer>
-                <Table className="table-footer">
+                <Table>
                   <TablePagination
                     count={100}
                     page={page}
                     onPageChange={(e, newPage) => setPage(newPage)}
                     rowsPerPageOptions={[]}
                     rowsPerPage={perPage}
+                    className="table-footer"
                   />
                 </Table>
               </TableContainer>
