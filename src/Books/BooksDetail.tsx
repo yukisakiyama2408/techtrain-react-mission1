@@ -2,14 +2,11 @@ import React from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { MenuAppBar } from "./BookIndexHeader";
 import { Button } from "@material-ui/core";
-import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { DeleteReviewAlert } from "./BookDelete";
-import Box from "@mui/material/Box";
-import Container from "@material-ui/core/Container";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -28,7 +25,6 @@ type Book = {
 
 const BooksDetail = () => {
   const { accessToken: api_token } = useAuth();
-  const navigate = useNavigate();
 
   const { id } = useParams();
   const bookDetailUrl = `https://api-for-missions-and-railways.herokuapp.com/books/${id}`;
@@ -61,15 +57,28 @@ const BooksDetail = () => {
                 color="text.secondary"
                 gutterBottom
               ></Typography>
-              <Typography variant="h5" component="div">
-                <a className="review-url" href={book.url} target="_blank">
+              <Typography variant="h4" component="div">
+                <a
+                  className="review-url"
+                  href={book.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {book.title}
                 </a>
               </Typography>
-
-              <Typography variant="body2">{book.detail}</Typography>
-              <Typography variant="h6"> {book.reviewer}'s review </Typography>
-              <Typography variant="body2">{book.review}</Typography>
+              <div>
+                <div className="detail-section">
+                  <Typography variant="h6">この本について：</Typography>
+                  <Typography variant="body1">{book.detail}</Typography>
+                </div>
+                <div className="review-section">
+                  <Typography variant="h6">
+                    {book.reviewer}さんのコメント：
+                  </Typography>
+                  <Typography variant="body1">{book.review}</Typography>
+                </div>
+              </div>
             </CardContent>
             <CardActions>
               <Button

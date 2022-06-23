@@ -97,6 +97,14 @@
   height: auto;
 }
 
+.detail-section {
+  margin-top: 15px;
+}
+
+.review-section {
+  margin-top: 10px;
+}
+
 .detail-edit-btn {
   float: right;
 }
