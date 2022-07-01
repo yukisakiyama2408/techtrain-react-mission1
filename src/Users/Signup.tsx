@@ -119,6 +119,11 @@ const Signup = () => {
                         value: 30,
                         message: "30文字以下で入力してくださいね！",
                       },
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                        message: "入力形式がメールアドレスではありません。",
+                      },
                     }}
                     render={({
                       field: { onBlur, onChange, value },
