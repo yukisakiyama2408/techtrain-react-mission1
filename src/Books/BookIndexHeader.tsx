@@ -1,19 +1,20 @@
 import * as React from "react";
 import axios from "axios";
-import { MouseEvent } from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, MouseEvent } from "react";
 import { useAuth } from "../Contexts/AuthContext";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+  MenuItem,
+  Menu,
+  Container,
+} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { Button } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import { Container } from "@material-ui/core";
 
 const MenuAppBar = () => {
   const { accessToken } = useAuth();

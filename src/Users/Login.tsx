@@ -3,18 +3,21 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
-import Avatar from "@mui/material/Avatar";
-import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
+import {
+  Avatar,
+  CssBaseline,
+  Grid,
+  Typography,
+  Container,
+  createTheme,
+  ThemeProvider,
+  Box,
+  TextField,
+  Button,
+  Alert,
+} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Box } from "@material-ui/core";
-import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
-import Button from "@mui/material/Button";
-import { Alert } from "@mui/material";
 
 const theme = createTheme();
 

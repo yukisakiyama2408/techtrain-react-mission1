@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link } from "react-router-dom";
-import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import { Container } from "@material-ui/core";
-import { CardActionArea } from "@mui/material";
-import { Table, TablePagination } from "@material-ui/core";
-import TableContainer from "@mui/material/TableContainer";
+import {
+  Table,
+  TablePagination,
+  Card,
+  Typography,
+  CardContent,
+  CardActionArea,
+  Container,
+  TableContainer,
+} from "@mui/material";
 import { MenuAppBar } from "./BookIndexHeader";
 import { BottomAppBar } from "./BookIndexBottom";
 

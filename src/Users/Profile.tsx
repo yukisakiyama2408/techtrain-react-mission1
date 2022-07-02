@@ -4,16 +4,18 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../Contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { Box } from "@material-ui/core";
-import { TextField } from "@material-ui/core";
+import {
+  Box,
+  TextField,
+  Avatar,
+  CssBaseline,
+  Typography,
+  Container,
+  Button,
+  Grid,
+} from "@mui/material";
 import { Controller } from "react-hook-form";
-import Avatar from "@mui/material/Avatar";
-import CssBaseline from "@mui/material/CssBaseline";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 

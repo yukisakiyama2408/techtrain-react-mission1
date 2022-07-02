@@ -3,16 +3,17 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Box } from "@material-ui/core";
-import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
-import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
-import Avatar from "@mui/material/Avatar";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
+import {
+  CssBaseline,
+  Box,
+  TextField,
+  Grid,
+  Avatar,
+  Typography,
+  Container,
+  Button,
+} from "@mui/material";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
