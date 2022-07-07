@@ -75,9 +75,13 @@
   margin-top: 20px;
 }
 
-.index-card {
-  background-color: #eee !important;
+.card-section {
   width: 70%;
+  margin: auto;
+}
+
+.index-card {
+  background-color: #f5f5f5 !important;
   height: auto;
   margin: 40px auto;
 }

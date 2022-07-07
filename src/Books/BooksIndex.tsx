@@ -63,27 +63,29 @@ const BookIndex = () => {
           <Container maxWidth="sm">
             {books.map((data) => {
               return (
-                <Card className="index-card">
-                  <CardActionArea component={Link} to={`/detail/${data.id}`}>
-                    {/* <Container> */}
-                    <CardContent key={data.id}>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {data.title}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        {data.reviewer}さんのコメント：
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {data.review}
-                      </Typography>
-                    </CardContent>
-                    {/* </Container> */}
-                  </CardActionArea>
-                </Card>
+                <div className="card-section">
+                  <Card className="index-card">
+                    <CardActionArea component={Link} to={`/detail/${data.id}`}>
+                      {/* <Container> */}
+                      <CardContent key={data.id}>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {data.title}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          color="text.secondary"
+                          gutterBottom
+                        >
+                          {data.reviewer}さんのコメント：
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {data.review}
+                        </Typography>
+                      </CardContent>
+                      {/* </Container> */}
+                    </CardActionArea>
+                  </Card>
+                </div>
               );
             })}
             <div className="table-box">
