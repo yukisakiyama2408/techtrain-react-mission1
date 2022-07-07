@@ -18,11 +18,11 @@ import AddIcon from "@mui/icons-material/Add";
 // import { Button } from "@material-ui/core";
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#757ce8",
-    },
-  },
+  // palette: {
+  //   primary: {
+  //     main: "#757ce8",
+  //   },
+  // },
 });
 
 const BottomAppBar = () => {
@@ -46,9 +46,9 @@ const BottomAppBar = () => {
         >
           <Toolbar>
             <StyledFab color="secondary" aria-label="add">
-              {/* <IconButton color="inherit" component={Link} to={"/new"}> */}
-              <AddIcon />
-              {/* </IconButton> */}
+              <IconButton color="inherit" component={Link} to={"/new"}>
+                <AddIcon />
+              </IconButton>
             </StyledFab>
           </Toolbar>
         </AppBar>

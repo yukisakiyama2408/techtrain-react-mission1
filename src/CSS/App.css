@@ -76,9 +76,10 @@
 }
 
 .index-card {
+  background-color: #eee !important;
   width: 70%;
   height: auto;
-  margin: 5px;
+  margin: 40px auto;
 }
 
 .table-box {

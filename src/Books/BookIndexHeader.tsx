@@ -105,17 +105,11 @@ const MenuAppBar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <Container>
-                  <MenuItem>{userName}さん</MenuItem>
-                </Container>
-                <Container>
-                  <MenuItem component={Link} to={"/profile"}>
-                    プロフィールを編集
-                  </MenuItem>
-                </Container>
-                <Container>
-                  <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
-                </Container>
+                <MenuItem>{userName}さん</MenuItem>
+                <MenuItem component={Link} to={"/profile"}>
+                  プロフィールを編集
+                </MenuItem>
+                <MenuItem onClick={SignOut}>LOGOUT</MenuItem>
 
                 {!isSignedIn && (
                   <MenuItem onClick={handleClose}>
